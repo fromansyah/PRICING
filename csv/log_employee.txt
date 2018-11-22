@@ -1,0 +1,14 @@
+
+
+2018-11-07 10:30:13 by fromansyah
+ Line 1. CR Employee ID already exist.
+ Line 2. FRO Employee ID already exist.
+ Line 3. HP Employee ID already exist.
+ Line 4. NSD Employee ID already exist.
+ Line 5. SSA Employee ID already exist.
+0 row(s) has been uploaded.
+5 row(s) fail to upload.
+
+2018-11-07 10:30:40 by fromansyah
+ Upload success.
+5 row(s) has been uploaded.

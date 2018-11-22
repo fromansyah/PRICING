@@ -1,0 +1,40 @@
+
+
+2018-11-09 18:18:52 by fromansyah
+
+2018-11-09 18:19:50 by fromansyah
+ Upload success.
+24 row(s) has been uploaded.
+
+
+2018-11-09 18:20:03 by fromansyah
+ Line 1. PM-88/90 Agreement already exist.
+ Line 2. PM-88/90 Agreement already exist.
+ Line 3. PM-88/90 Agreement already exist.
+ Line 4. PM-88/90 Agreement already exist.
+ Line 5. PM-99/90 Agreement already exist.
+ Line 6. PM-99/90 Agreement already exist.
+ Line 7. PM-99/90 Agreement already exist.
+ Line 8. PM-99/90 Agreement already exist.
+ Line 9. PR-10/30 Agreement already exist.
+ Line 10. PR-10/30 Agreement already exist.
+ Line 11. PR-10/30 Agreement already exist.
+ Line 12. PR-10/30 Agreement already exist.
+ Line 13. PR-456/50 Agreement already exist.
+ Line 14. PR-456/50 Agreement already exist.
+ Line 15. PR-456/50 Agreement already exist.
+ Line 16. PR-456/50 Agreement already exist.
+ Line 17. PR-80/10 Agreement already exist.
+ Line 18. PR-80/10 Agreement already exist.
+ Line 19. PR-80/10 Agreement already exist.
+ Line 20. PR-80/10 Agreement already exist.
+ Line 21. RH-30/50 Agreement already exist.
+ Line 22. RH-30/50 Agreement already exist.
+ Line 23. RH-30/50 Agreement already exist.
+ Line 24. RH-30/50 Agreement already exist.
+0 row(s) has been uploaded.
+24 row(s) fail to upload.
+
+2018-11-09 18:25:38 by fromansyah
+ Upload success.
+24 row(s) has been uploaded.

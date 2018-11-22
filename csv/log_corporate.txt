@@ -1,0 +1,14 @@
+
+
+2018-10-24 09:43:05 by fromansyah
+ Upload success.
+
+2018-10-24 09:43:16 by fromansyah
+ Line 1. ABC Corporate number already exist.
+ Line 2. AI Corporate number already exist.
+
+2018-10-24 11:52:49 by fromansyah
+
+2018-11-07 09:47:40 by fromansyah
+ Upload success.
+3 row(s) has been uploaded.

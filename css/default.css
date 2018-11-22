@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  background-image:url(../images/background.jpg);
+}
+
+#container {
+	margin: 0 auto;
+	width: 780px;
+	background-color:#F2F2FF;
+}
+
+#header-1 {
+  width:780px;
+  height:64px;
+  background-image:url(../images/header_1.jpg);
+}
+
+#header-2 {
+  width:780px;
+  height:242px;
+  background-image:url(../images/header_2.jpg);
+}
+
+#menu-atas {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  width:780px;
+  height:34px;
+  background-image:url(../images/menu_atas.jpg);
+  text-transform:uppercase;
+}
+#menu-atas ul {
+  position:absolute;
+  padding-left:25px;
+  margin:0;
+}
+#menu-atas ul li{
+  display:block;
+  float:left;
+  height:
+}
+#menu-atas ul li a{
+	display:block;
+	height:26px;
+	padding:7px 10px 0 10px;
+	color:#333333;
+	/*background:url(images/nav_bg.gif) 0 0 repeat-x #131313;*/
+	text-decoration:none;
+	text-transform:uppercase;
+	float:left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+#menu-atas ul li a:hover{
+	background:url(../images/menu_atas_hover.jpg) 0 0 repeat-x;
+	color:#ffffff;
+}
+
+#content {
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size:11px;
+  color:#5C5C5C;
+  width:780px;
+  height:auto;
+}
+#content img {
+  padding: 5px 10px 5px 5px;
+}
+#content .underline-text {
+  text-decoration:underline;
+}
+#content .left {
+  width:570px;
+  height:auto;
+  float:left;
+  margin-top:10px;
+  padding-left:10px;
+  padding-right:10px;
+  margin-bottom:10px;
+  background-image:url(../images/bg_content_left.png);
+  background-repeat:repeat-y;
+}
+#content .right {
+  width:180px;
+  height:auto;
+  float:right;
+  margin-left:0px;
+  margin-top:10px;
+}
+#content .right .title-section {
+  color:#FFFFFF;
+  font-size:13px;
+  font-weight:bold;
+  width:166;
+  height:25px;
+  background-image:url(../images/title_section.jpg);
+  background-repeat:no-repeat;
+  padding-left:27px;
+  padding-top:3px;  
+}
+#content .right form {
+  padding-top:10px;
+  margin:0px;
+}
+#content .right h3 {
+  padding-left:0px;
+  width:50px;
+}
+
+#content h3 {
+  font-size:13px;
+  padding-left:0px;
+  padding:0px 0px 5px 0px;
+  width:250px;
+  margin-left:5px;
+  color:#003366;
+}
+#content p {
+  margin-left:0px;
+}
+
+#footer {
+  clear:both;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:11px;
+  color:#CCCCCC;
+  /*font-weight:bold;*/
+  padding: 10px 0px 0px 0px;
+  width:780px;
+  height:39px;
+  background:url(../images/footer.jpg) repeat-x;
+}
+#footer a {
+  text-decoration:none;
+  color:#CCCCCC;
+}
+#footer a:hover {
+  text-decoration:none;
+  color:#FFFFFF;
+}

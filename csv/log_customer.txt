@@ -1,0 +1,35 @@
+
+
+2018-10-24 11:54:16 by fromansyah
+
+2018-10-24 11:54:52 by fromansyah
+ Upload success.
+
+2018-10-24 11:55:05 by fromansyah
+ Line 1. 70088 Customer number already exist.
+ Line 2. 70089 Customer number already exist.
+ Line 3. 70090 Customer number already exist.
+
+2018-10-24 11:56:24 by fromansyah
+ Line 2. 70090 Customer number already exist.
+
+2018-11-07 10:00:18 by fromansyah
+ Upload success.
+7 row(s) has been uploaded.
+
+
+2018-11-07 10:02:29 by fromansyah
+ Upload success.
+7 row(s) has been uploaded.
+
+
+2018-11-07 10:04:08 by fromansyah
+ Line 1. 70085 Customer number already exist.
+ Line 2. 70086 Customer number already exist.
+ Line 3. 70087 Customer number already exist.
+ Line 4. 70088 Customer number already exist.
+ Line 5. 70089 Customer number already exist.
+ Line 6. 70090 Customer number already exist.
+ Line 7. 70091 Customer number already exist.
+0 row(s) has been uploaded.
+7 row(s) fail to upload.

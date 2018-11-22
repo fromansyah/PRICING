@@ -1,0 +1,94 @@
+/* 
+    Document   : adminTemplate
+    Created on : May 14, 2013, 2:06:38 PM
+    Author     : fromansyah
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body
+{
+	background-color: white;
+	font-family: arial;
+	font-size: 12px;
+}
+
+#Inner
+{
+	margin-top: 15px;
+}
+
+#Container
+{
+	/*width: 900px;*/
+	margin: 0px auto;
+}
+
+.cleaner
+{
+    clear: both;
+}
+
+#Head
+{
+	height: 212px;
+	/*width: 900px;*/
+	background: url(../images/bac_logo.gif) top left repeat-x;
+}
+
+#Head_left
+{
+	height: 212px;
+	width: 324px;
+	float: left;
+}
+
+#Head_right
+{
+	height: 212px;
+	width: 800px;
+	float: right;
+	clear: right;
+}
+
+#Logo
+{
+	height: 161px;
+	width: 576px;
+}
+
+#Name
+{
+    /*background: url(../images/logo.gif) top left no-repeat;*/
+    background-position: 54px 50px;
+    font-size: 34px;
+    padding-top: 48px;
+    /*padding-left: 100px;*/
+    color: #989d9e;
+}
+
+#Informations
+{
+    font-size: 15px;
+    padding-left: 92px;
+    color: #989d9e;
+}
+
+#Leaf_top
+{
+    background: url(../images/logo.jpg) top left no-repeat;
+    height: 161px;
+    width: 324px;
+    margin-top:60px;
+	float: left;
+}
+
+.blue
+{
+	color: #0e88af;
+}
+
+root { 
+    display: block;
+}
+

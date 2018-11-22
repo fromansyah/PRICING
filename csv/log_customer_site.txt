@@ -1,0 +1,27 @@
+
+
+2018-10-25 09:32:07 by fromansyah
+ Line 1. 70085-001 Customer site already exist.
+ Line 5. 70010 Customer ID does not exist.
+
+2018-10-25 09:34:34 by fromansyah
+ Line 1. 70085-001 Customer site already exist.
+ Line 5. 70010 Customer ID does not exist.
+
+2018-11-07 10:14:13 by fromansyah
+
+2018-11-07 10:14:51 by fromansyah
+
+2018-11-07 10:16:11 by fromansyah
+ Line 1. 70085-001 Customer ID does not exist.
+ Line 2. 70085-002 Customer ID does not exist.
+ Line 3. 70086-001 Customer ID does not exist.
+ Line 4. 70087-001 Customer ID does not exist.
+ Line 5. 70010-001 Customer ID does not exist.
+0 row(s) has been uploaded.
+5 row(s) fail to upload.
+
+2018-11-07 10:16:54 by fromansyah
+ Line 5. 70010 Customer ID does not exist.
+4 row(s) has been uploaded.
+1 row(s) fail to upload.
