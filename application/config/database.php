@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = "default";
 $active_record = TRUE;
 
-$db['default']['hostname'] = "pricing-app.azurewebsites.net";
+$db['default']['hostname'] = "pricing-db-server.mysql.database.azure.com";
 $db['default']['username'] = "fromansyah";
 $db['default']['password'] = "Neverl4nd";
 $db['default']['database'] = "pricing";
