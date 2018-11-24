@@ -73,9 +73,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = "default";
 $active_record = TRUE;
 
-$db['default']['hostname'] = "preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value)";
-$db['default']['username'] = "preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value)";
-$db['default']['password'] = "preg_replace("/^.*Password=(.+?)$/", "\\1", $value)";
+$db['default']['hostname'] = 'preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value)';
+$db['default']['username'] = 'preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value)';
+$db['default']['password'] = 'preg_replace("/^.*Password=(.+?)$/", "\\1", $value)';
 $db['default']['database'] = "pricing";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
