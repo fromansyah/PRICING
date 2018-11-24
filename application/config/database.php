@@ -74,8 +74,8 @@ $active_group = "default";
 $active_record = TRUE;
 
 $db['default']['hostname'] = "https://pricing-app.azurewebsites.net/";
-$db['default']['username'] = "root";
-$db['default']['password'] = "";
+$db['default']['username'] = "fromansyah";
+$db['default']['password'] = "Neverl4nd";
 $db['default']['database'] = "pricing";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
