@@ -74,8 +74,8 @@ $active_group = "default";
 $active_record = TRUE;
 
 $db['default']['hostname'] = "pricing-app.scm.azurewebsites.net";
-$db['default']['username'] = "fromansyah";
-$db['default']['password'] = "Neverl4nd";
+$db['default']['username'] = "root";
+$db['default']['password'] = "bitnami";
 $db['default']['database'] = "pricing";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
