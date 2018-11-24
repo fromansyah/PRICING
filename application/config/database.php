@@ -73,9 +73,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = "default";
 $active_record = TRUE;
 
-$db['default']['hostname'] = "ftp://waws-prod-dm1-109.ftp.azurewebsites.windows.net";
-$db['default']['username'] = "fromansyah";
-$db['default']['password'] = "Neverl4nd";
+$db['default']['hostname'] = "localhost";
+$db['default']['username'] = "root";
+$db['default']['password'] = "";
 $db['default']['database'] = "pricing";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
