@@ -74,7 +74,7 @@ $active_group = "default";
 $active_record = TRUE;
 
 $db['default']['hostname'] = "pricing-db-server.mysql.database.azure.com";
-$db['default']['username'] = "fromansyah";
+$db['default']['username'] = "fromansyah@pricing-db-server";
 $db['default']['password'] = "Neverl4nd";
 $db['default']['database'] = "pricing";
 $db['default']['dbdriver'] = "mysql";
