@@ -12,7 +12,7 @@
 <link href="<?= base_url() ?>css/tabbed_new.css" rel="stylesheet" type="text/css" />
 <script src="<?= base_url() ?>js/jquery-1.8.0.min.js" type="text/javascript"></script>
 
-<link href="<?=$this->config->item('base_url');?>css/style.css" rel="stylesheet" type="text/css" />
+<link href="<?=$this->config->item('base_url');?>/css/style.css" rel="stylesheet" type="text/css" />
 
 <link rel="icon" type="image/gif" href="<?= base_url() ?>images/logo_application.gif" />
 <title>
