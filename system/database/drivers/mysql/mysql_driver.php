@@ -131,6 +131,7 @@ class CI_DB_mysql_driver extends CI_DB {
 		}
 
 		// Error suppression is necessary mostly due to PHP 5.5+ issuing E_DEPRECATED messages
+		error_reporting(E_ALL ^ E_DEPRECATED); 
 		$this->conn_id = ($persistent === TRUE)
 			? mysql_pconnect($this->hostname, $this->username, $this->password, $client_flags)
 			: mysql_connect($this->hostname, $this->username, $this->password, TRUE, $client_flags);
