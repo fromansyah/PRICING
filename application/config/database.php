@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = "default";
 $active_record = TRUE;
 
-$connectstr_dbhost = '';
+/*$connectstr_dbhost = '';
 $connectstr_dbname = '';
 $connectstr_dbusername = '';
 $connectstr_dbpassword = '';
@@ -87,11 +87,11 @@ foreach ($_SERVER as $key => $value) {
     $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
     $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
-}
+}*/
 
-$db['default']['hostname'] = $connectstr_dbhost;
-$db['default']['username'] = $connectstr_dbusername;
-$db['default']['password'] = $connectstr_dbpassword;
+$db['default']['hostname'] = "pricing-app-mysqldbserver.mysql.database.azure.com";
+$db['default']['username'] = "fromansyah@pricing-app-mysqldbserver";
+$db['default']['password'] = "Passw0rd";
 $db['default']['database'] = "pricing";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
