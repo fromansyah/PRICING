@@ -73,9 +73,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = "default";
 $active_record = TRUE;
 
-$db['default']['hostname'] = "pricing-app.scm.azurewebsites.net";
-$db['default']['username'] = "root";
-$db['default']['password'] = "bitnami";
+$connectstr_dbhost = '';
+$connectstr_dbname = '';
+$connectstr_dbusername = '';
+$connectstr_dbpassword = '';
+ 
+foreach ($_SERVER as $key => $value) {
+    if (strpos($key, "MYSQLCONNSTR_") !== 0) {
+        continue;
+    }
+    
+    $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+    $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+}
+
+$db['default']['hostname'] = $connectstr_dbhost;
+$db['default']['username'] = $connectstr_dbusername;
+$db['default']['password'] = $connectstr_dbpassword;
 $db['default']['database'] = "pricing";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
