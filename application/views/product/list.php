@@ -70,7 +70,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Product/ajax_list')?>",
+            "url": "<?php echo site_url('index.php/Product/ajax_list')?>",
             "type": "POST"
         },
 
