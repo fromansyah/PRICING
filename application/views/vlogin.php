@@ -33,7 +33,7 @@ $(document).ready(function(){
         
 //        window.location = base_url + 'Welcome/login/'+id_user+'/'+password;
 
-        $.post(base_url + 'Welcome/check_login', 
+        $.post(base_url + 'index.php/Welcome/check_login', 
             {id_user: id_user, password: password},
             function(data) {
                 if (data.result == 'true') {
