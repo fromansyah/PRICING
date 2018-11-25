@@ -25,7 +25,7 @@ function beginrefresh(){
     
     if (parselimit==1)
         //window.location.reload()
-        window.location = $_base_url + 'Menu_utama/'
+        window.location = $_base_url + 'index.php/Menu_utama/'
     
     else{ 
         parselimit-=1
