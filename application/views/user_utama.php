@@ -5,7 +5,7 @@
 <link href="<?= base_url() ?>css/backoff_ssek.css" rel="stylesheet" type="text/css" />
 <script src="<?= base_url() ?>js/utility.js" type="text/javascript"></script>
 
-<link href="<?=$this->config->item('base_url');?>css/style.css" rel="stylesheet" type="text/css" />
+<link href="<?=$this->config->item('base_url');?>/css/style.css" rel="stylesheet" type="text/css" />
 
 <link rel="icon" type="image/gif" href="<?= base_url() ?>images/icon_ecolab.jpg" />
 <title>
