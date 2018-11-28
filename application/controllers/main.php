@@ -11,7 +11,7 @@ public function __construct()
     function index()
     {
         if ($this->session->userdata("username")):
-            redirect("Menu_utama","refresh");
+            redirect("index.php/Menu_utama","refresh");
         else:
             $data["title"] = "Login";
             $data["content"] = $this->load->view('vlogin',$data,true);
@@ -26,13 +26,13 @@ public function __construct()
 
         if (!($username && $password)) {
             $this->session->set_flashdata('err_message', 'ID. User dan Password harus diisi.');
-            redirect('Welcome', 'refresh');
+            redirect('index.php/Welcome', 'refresh');
         } else {
             if ($this->Users_model->login($username, $password)) {
-                redirect('Menu_utama');
+                redirect('index.php/Menu_utama');
             } else {
                 $this->session->set_flashdata('err_message', 'ID. User dan Password yang anda masukkan salah.');
-                redirect('Welcome', 'refresh');
+                redirect('index.php/Welcome', 'refresh');
             }
         }
     }
@@ -73,6 +73,6 @@ public function __construct()
         $this->session->unset_userdata('template');
         $this->session->unset_userdata('edit_template');
         
-        redirect('Welcome', 'refresh');
+        redirect('index.php/Welcome', 'refresh');
     }
 }
