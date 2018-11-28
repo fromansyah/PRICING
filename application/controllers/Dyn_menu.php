@@ -43,8 +43,8 @@ class Dyn_menu extends CI_Controller {
             $row[] = '['.$menu->parent_id.'] '.$parent_name;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_menu(\''.$menu->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_edit.png\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_menu(\''.$menu->id.'\''.',\''.$menu->title.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_delete.png\'></a>';
+            $button = '<a href=\'#\' onclick="edit_menu(\''.$menu->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\'></a>'.'&nbsp&nbsp&nbsp'.
+                      '<a href=\'#\' onclick="delete_menu(\''.$menu->id.'\''.',\''.$menu->title.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\'></a>';
             
             $row[] = $button;
 
