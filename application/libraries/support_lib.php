@@ -13,7 +13,7 @@ class support_lib
         if ($this->CI->session->userdata('username')) {
             return true;
         } else {
-            redirect('Main');
+            redirect('index.php/Main');
             return false;
         }
     }
