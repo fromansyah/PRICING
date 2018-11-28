@@ -34,9 +34,9 @@ class Periode extends CI_Controller {
             $row[] = $periode->end_date;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_periode(\''.$periode->periode_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_edit.png\' title=\'Edit Periode\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="view_detail(\''.$periode->periode_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/view-details.png\' title=\'View Detail\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_periode(\''.$periode->periode_id.'\''.',\''.$periode->periode_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_delete.png\' title=\'Delete Periode\'></a>';
+            $button = '<a href=\'#\' onclick="edit_periode(\''.$periode->periode_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Periode\'></a>'.'&nbsp&nbsp&nbsp'.
+                      '<a href=\'#\' onclick="view_detail(\''.$periode->periode_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/view-details.png\' title=\'View Detail\'></a>'.'&nbsp&nbsp&nbsp'.
+                      '<a href=\'#\' onclick="delete_periode(\''.$periode->periode_id.'\''.',\''.$periode->periode_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Periode\'></a>';
             
             $row[] = $button;
 
