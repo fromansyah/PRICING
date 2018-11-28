@@ -114,7 +114,7 @@ function cancel(){
 function save(){
     var url;
     
-    url = "<?php echo site_url('User/ajax_change_password')?>";
+    url = "<?php echo site_url('index.php/User/ajax_change_password')?>";
     
     var $oldPassword = document.getElementById("oldPassword").value;
     var $newPassword = document.getElementById("newPassword").value;
