@@ -33,9 +33,9 @@ class Master_data_type extends CI_Controller {
             $row[] = $periode->type_name;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_mdt(\''.$periode->type.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_edit.png\' title=\'Edit Master Data Type\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="view_md(\''.$periode->type.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/view-details.png\' title=\'View Master Data\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_mdt(\''.$periode->type.'\''.',\''.$periode->type_name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_delete.png\' title=\'Delete Master Data Type\'></a>';
+            $button = '<a href=\'#\' onclick="edit_mdt(\''.$periode->type.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Master Data Type\'></a>'.'&nbsp&nbsp&nbsp'.
+                      '<a href=\'#\' onclick="view_md(\''.$periode->type.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/view-details.png\' title=\'View Master Data\'></a>'.'&nbsp&nbsp&nbsp'.
+                      '<a href=\'#\' onclick="delete_mdt(\''.$periode->type.'\''.',\''.$periode->type_name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Master Data Type\'></a>';
             
             $row[] = $button;
 
