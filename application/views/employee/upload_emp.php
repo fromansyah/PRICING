@@ -29,17 +29,17 @@ $(document).ready(function(){
     }
     
     if ($_type == 'generate') {
-        window.location = $_base_url + 'Upload/do_upload_cam/'+ fileName;
+        window.location = $_base_url + 'index.php/Upload/do_upload_cam/'+ fileName;
         //alert(fileName);
     }
   });
   
   $('#btn_cancel').click(function(){
-    window.location = $_base_url + 'Employee/';
+    window.location = $_base_url + 'index.php/Employee/';
   });
   
   $('#download_template').click(function(){
-    window.location = $_base_url + 'Employee/download_template';
+    window.location = $_base_url + 'index.php/Employee/download_template';
   });
 });
 
