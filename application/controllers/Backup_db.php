@@ -18,9 +18,16 @@ class backup_db extends CI_Controller {
     }
     
     function do_backup(){
-        $filename='database_backup_'.date('Y-M-d_H.i.s', strtotime('+6 hours')).'.sql';
+        $filename ='database_backup_'.date('Y-M-d_H.i.s', strtotime('+6 hours')).'.sql';
 
-        $result=system("C:\\xampp\\mysql\\bin\\mysqldump --user=root --host=localhost pricing > ./backup/".$filename);
+//         $result=system("C:\\xampp\\mysql\\bin\\mysqldump --user=root --host=localhost pricing > ./backup/".$filename);
+	    
+	$this->load->dbutil();
+
+	// Backup your entire database and assign it to a variable
+	$backup =& $this->dbutil->backup(); 
+	$this->load->helper('file');
+	write_file('./backup/'.$filename, $backup); 
 
         $data['message'] = "Database Back Up Success!!";
         $data['message2'] = "Back Up file at C:\xampp\htdocs\PRICING\backup\ ".$filename;
