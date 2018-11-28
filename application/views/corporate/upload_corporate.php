@@ -29,17 +29,17 @@ $(document).ready(function(){
     }
     
     if ($_type == 'generate') {
-        window.location = $_base_url + 'Upload/do_upload_corporate/'+ fileName;
+        window.location = $_base_url + 'index.php/Upload/do_upload_corporate/'+ fileName;
         //alert(fileName);
     }
   });
   
   $('#btn_cancel').click(function(){
-    window.location = $_base_url + 'Corporate/';
+    window.location = $_base_url + 'index.php/Corporate/';
   });
   
   $('#download_template').click(function(){
-    window.location = $_base_url + 'Corporate/download_template';
+    window.location = $_base_url + 'index.php/Corporate/download_template';
   });
 });
 
