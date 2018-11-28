@@ -23,6 +23,7 @@ class backup_db extends CI_Controller {
 //         $result=system("C:\\xampp\\mysql\\bin\\mysqldump --user=root --host=localhost pricing > ./backup/".$filename);
 	    
 	$this->load->dbutil();
+	$this->load->database();
 
 	// Backup your entire database and assign it to a variable
 	$backup =& $this->dbutil->backup(); 
