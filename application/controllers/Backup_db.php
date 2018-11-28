@@ -18,22 +18,34 @@ class backup_db extends CI_Controller {
     }
     
     function do_backup(){
-        $filename ='database_backup_'.date('Y-M-d_H.i.s', strtotime('+6 hours')).'.sql';
+        /*$filename='database_backup_'.date('Y-M-d_H.i.s', strtotime('+6 hours')).'.sql';
 
-//         $result=system("C:\\xampp\\mysql\\bin\\mysqldump --user=root --host=localhost pricing > ./backup/".$filename);
-	    
-	$this->load->dbutil();
-	$this->load->database();
-
-	// Backup your entire database and assign it to a variable
-	$backup =& $this->dbutil->backup(); 
-	$this->load->helper('file');
-	write_file('./backup/'.$filename, $backup); 
+        $result=system("C:\\xampp\\mysql\\bin\\mysqldump --user=root --host=localhost pricing > ./backup/".$filename);
 
         $data['message'] = "Database Back Up Success!!";
         $data['message2'] = "Back Up file at C:\xampp\htdocs\PRICING\backup\ ".$filename;
         $data['content'] = $this->load->view('backup_db/result', $data, TRUE);
-        $this->load->view('form_template', $data);
+        $this->load->view('form_template', $data);*/
+	
+	$this->load->dbutil();
+
+	$prefs = array(     
+	    'format'      => 'zip',             
+	    'filename'    => 'database_backup_'.date('Y-M-d_H.i.s', strtotime('+6 hours')).'.sql'
+	    );
+
+
+	$backup =& $this->dbutil->backup($prefs); 
+
+	$db_name = 'backup-on-'. date("Y-m-d-H-i-s") .'.zip';
+	$save = './backup/'.$db_name;
+
+	$this->load->helper('file');
+	write_file($save, $backup); 
+
+
+	$this->load->helper('download');
+	force_download($db_name, $backup);
     }
 }
 ?>
