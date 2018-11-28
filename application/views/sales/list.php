@@ -81,7 +81,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Sales/ajax_list')?>",
+            "url": "<?php echo site_url('index.php/Sales/ajax_list')?>",
             "type": "POST"
         },
 
@@ -110,7 +110,7 @@ $(document).ready(function() {
   $('#cust').change(function(){ //any select change on the dropdown with id country trigger this code
                 $("#site > option").remove();
                 var cust_id = $('#cust').val();
-                var post_url = _base_url + 'Cust_site/getCustSiteList/' + cust_id;
+                var post_url = _base_url + 'index.php/Cust_site/getCustSiteList/' + cust_id;
                     $.ajax({
                         type: "POST",
                         url: post_url,
@@ -134,7 +134,7 @@ $(document).ready(function() {
                 var cust_id = $('#cust').val();
                 var site_id = $('#site').val();
                 var product_no = $('#product').val();
-                var post_url = _base_url + 'Agreement/getAgreementListForSale/' + cust_id + '/' + site_id + '/' + product_no.replace('/', 'slash');
+                var post_url = _base_url + 'index.php/Agreement/getAgreementListForSale/' + cust_id + '/' + site_id + '/' + product_no.replace('/', 'slash');
                     $.ajax({
                         type: "POST",
                         url: post_url,
@@ -159,7 +159,7 @@ $(document).ready(function() {
                 var cust_id = $('#cust').val();
                 var site_id = $('#site').val();
                 var product_no = $('#product').val();
-                var post_url = _base_url + 'Agreement/getAgreementListForSale/' + cust_id + '/' + site_id + '/' + product_no.replace('/', 'slash');
+                var post_url = _base_url + 'index.php/Agreement/getAgreementListForSale/' + cust_id + '/' + site_id + '/' + product_no.replace('/', 'slash');
                     $.ajax({
                         type: "POST",
                         url: post_url,
@@ -197,12 +197,12 @@ function add_sales()
 
 function upload_sales()
 {
-    window.location = _base_url + 'Sales/new_upload_sales/';
+    window.location = _base_url + 'index.php/Sales/new_upload_sales/';
 }
 
 
 function view_price(id){
-    window.location = _base_url + 'Sales_price/lists/' + id.replace('/', 'slash');
+    window.location = _base_url + 'index.php/Sales_price/lists/' + id.replace('/', 'slash');
 }
 
 function edit_sales(id)
@@ -216,7 +216,7 @@ function edit_sales(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Sales/ajax_edit/')?>/" + id.replace('/', 'slash'),
+        url : "<?php echo site_url('index.php/Sales/ajax_edit/')?>/" + id.replace('/', 'slash'),
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -225,7 +225,7 @@ function edit_sales(id)
             var site_id = data.site_id;
             var product_no = data.product_no;
             $("#site > option").remove();
-                var post_url = _base_url + 'Cust_site/getCustSiteList/' + cust_id;
+                var post_url = _base_url + 'index.php/Cust_site/getCustSiteList/' + cust_id;
                     $.ajax({
                         type: "POST",
                         url: post_url,
@@ -253,7 +253,7 @@ function edit_sales(id)
                     });
                     
             $("#price > option").remove();
-                var post_url = _base_url + 'Agreement/getAgreementListForSale/' + cust_id + '/' + site_id + '/' + product_no.replace('/', 'slash');
+                var post_url = _base_url + 'index.php/Agreement/getAgreementListForSale/' + cust_id + '/' + site_id + '/' + product_no.replace('/', 'slash');
                     $.ajax({
                         type: "POST",
                         url: post_url,
@@ -315,9 +315,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Sales/ajax_add')?>";
+        url = "<?php echo site_url('index.php/Sales/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Sales/ajax_update')?>";
+        url = "<?php echo site_url('index.php/Sales/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -361,7 +361,7 @@ function delete_sales(id, sales)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Sales/ajax_delete')?>/"+ id.replace('/', 'slash'),
+            url : "<?php echo site_url('index.php/Sales/ajax_delete')?>/"+ id.replace('/', 'slash'),
             type: "POST",
             dataType: "JSON",
             success: function(data)
