@@ -76,9 +76,9 @@ class Sales extends CI_Controller {
             $row[] = '<div align="right">'.number_format($sales->total, 2).'</div>';
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_sales(\''.$sales->sale_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_edit.png\' title=\'Edit Sales\'></a>'.'&nbsp&nbsp&nbsp'.
+            $button = '<a href=\'#\' onclick="edit_sales(\''.$sales->sale_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Sales\'></a>'.'&nbsp&nbsp&nbsp'.
 //                      '<a href=\'#\' onclick="view_price(\''.$sales->sale_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/view-details.png\' title=\'View Prices\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_sales(\''.$sales->sale_id.'\''.',\''.$sales->sale_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_delete.png\' title=\'Delete Sales\'></a>';
+                      '<a href=\'#\' onclick="delete_sales(\''.$sales->sale_id.'\''.',\''.$sales->sale_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Sales\'></a>';
             
             $row[] = $button;
 
