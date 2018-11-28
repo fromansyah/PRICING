@@ -40,7 +40,7 @@ $(document).ready(function() {
                         data = $.csv.toArrays(csvData);
 //                        alert(data);
                         $.post(
-                                $_base_url + 'Customer/ajax_upload',
+                                $_base_url + 'index.php/Customer/ajax_upload',
                                 {
                                     data: data
                                 },
@@ -58,15 +58,15 @@ $(document).ready(function() {
         }
 
     $('#btn_cancel').click(function(){
-        window.location = $_base_url + 'Customer/';
+        window.location = $_base_url + 'index.php/Customer/';
     });
 
     $('#download_template').click(function(){
-        window.location = $_base_url + 'Customer/download_template';
+        window.location = $_base_url + 'index.php/Customer/download_template';
     });
 
     $('#show_log_file').click(function(){
-        window.location = $_base_url + 'Customer/log_file';
+        window.location = $_base_url + 'index.php/Customer/log_file';
     });
 });
 </script>
