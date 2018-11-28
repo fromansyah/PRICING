@@ -39,7 +39,7 @@ $(document).ready(function() {
                         var csvData = event.target.result;
                         data = $.csv.toArrays(csvData);
                         $.post(
-                                $_base_url + 'Sales/ajax_upload',
+                                $_base_url + 'index.php/Sales/ajax_upload',
                                 {
                                     data: data
                                 },
@@ -59,15 +59,15 @@ $(document).ready(function() {
         }
 
     $('#btn_cancel').click(function(){
-        window.location = $_base_url + 'Sales/';
+        window.location = $_base_url + 'index.php/Sales/';
     });
 
     $('#download_template').click(function(){
-        window.location = $_base_url + 'Sales/download_template';
+        window.location = $_base_url + 'index.php/Sales/download_template';
     });
 
     $('#show_log_file').click(function(){
-        window.location = $_base_url + 'Sales/log_file';
+        window.location = $_base_url + 'index.php/Sales/log_file';
     });
 });
 </script>
