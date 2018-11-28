@@ -61,7 +61,7 @@
                             <b><font color="#FFFFFF">Welcome <?= $this->session->userdata("fullname") ?> </font></b>
                             <!--<b><font color="#FFFFFF">User ID. : <?= $this->session->userdata("username") ?></font></b>-->
                             <!--<b><font color="#FFFFFF">| Grup: <?= $this->session->userdata("user_group") ?> | </font></b>-->
-                            <b><a style="text-decoration:none" href="<?= base_url() ?>Welcome/logout"><button class="button_logout">Log Out</button></a></b>
+                            <b><a style="text-decoration:none" href="<?= base_url() ?>index.php/Welcome/logout"><button class="button_logout">Log Out</button></a></b>
                         </td>
                     </tr>
                 </table>
