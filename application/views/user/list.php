@@ -67,7 +67,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('User/ajax_list')?>",
+            "url": "<?php echo site_url('index.php/User/ajax_list')?>",
             "type": "POST"
         },
 
@@ -114,7 +114,7 @@ function edit_user(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('User/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('index.php/User/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -148,9 +148,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('User/ajax_add')?>";
+        url = "<?php echo site_url('index.php/User/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('User/ajax_update')?>";
+        url = "<?php echo site_url('index.php/User/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -194,7 +194,7 @@ function delete_user(id, user)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('User/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('index.php/User/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -218,7 +218,7 @@ function reset_user(id, user)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('User/ajax_reset')?>/"+id,
+            url : "<?php echo site_url('index.php/User/ajax_reset')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
