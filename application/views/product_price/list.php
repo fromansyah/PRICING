@@ -74,7 +74,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Product_price/ajax_list/'.$product_no)?>",
+            "url": "<?php echo site_url('index.php/Product_price/ajax_list/'.$product_no)?>",
             "type": "POST"
         },
 
@@ -102,7 +102,7 @@ $(document).ready(function() {
 
 function back_to_product()
 {
-    window.location = _base_url + 'Product/';
+    window.location = _base_url + 'index.php/Product/';
 }
 
 function add_price()
@@ -127,7 +127,7 @@ function edit_price(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Product_price/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('index.php/Product_price/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -163,9 +163,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Product_price/ajax_add')?>";
+        url = "<?php echo site_url('index.php/Product_price/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Product_price/ajax_update')?>";
+        url = "<?php echo site_url('index.php/Product_price/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -209,7 +209,7 @@ function delete_price(id, price)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Product_price/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('index.php/Product_price/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
