@@ -68,7 +68,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Periode_detail/ajax_list/'.$periode_id)?>",
+            "url": "<?php echo site_url('index.php/Periode_detail/ajax_list/'.$periode_id)?>",
             "type": "POST"
         },
 
@@ -120,7 +120,7 @@ function edit_detail(id){
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Periode_detail/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('index.php/Periode_detail/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -153,9 +153,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Periode_detail/ajax_add')?>";
+        url = "<?php echo site_url('index.php/Periode_detail/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Periode_detail/ajax_update')?>";
+        url = "<?php echo site_url('index.php/Periode_detail/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -199,7 +199,7 @@ function delete_detail(id, detail)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Periode_detail/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('index.php/Periode_detail/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
