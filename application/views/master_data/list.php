@@ -68,7 +68,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Master_data/ajax_list/'.$type)?>",
+            "url": "<?php echo site_url('index.php/Master_data/ajax_list/'.$type)?>",
             "type": "POST"
         },
 
@@ -96,7 +96,7 @@ $(document).ready(function() {
 
 function back_to_mdt()
 {
-    window.location = _base_url + 'Master_data_type/';
+    window.location = _base_url + 'index.php/Master_data_type/';
 }
 
 function add_md()
@@ -120,7 +120,7 @@ function edit_md(id){
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Master_data/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('index.php/Master_data/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -153,9 +153,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Master_data/ajax_add')?>";
+        url = "<?php echo site_url('index.php/Master_data/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Master_data/ajax_update')?>";
+        url = "<?php echo site_url('index.php/Master_data/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -199,7 +199,7 @@ function delete_md(id, detail)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Master_data/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('index.php/Master_data/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
