@@ -4,7 +4,7 @@ $_base_url = '<?= base_url() ?>';
 
 $(document).ready(function(){
   $('#btn_cancel').click(function(){
-    window.location = $_base_url + 'Backup_db';
+    window.location = $_base_url + 'index.php/Backup_db';
   });
 });
 
