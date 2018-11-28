@@ -54,8 +54,8 @@ class Cust_site extends CI_Controller {
             $row[] = $site->note;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_site(\''.$site->site_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_edit.png\' title=\'Edit Price\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_site(\''.$site->site_id.'\''.',\''.$site->site_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_delete.png\' title=\'Delete Price\'></a>';
+            $button = '<a href=\'#\' onclick="edit_site(\''.$site->site_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Price\'></a>'.'&nbsp&nbsp&nbsp'.
+                      '<a href=\'#\' onclick="delete_site(\''.$site->site_id.'\''.',\''.$site->site_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Price\'></a>';
             
             $row[] = $button;
 
