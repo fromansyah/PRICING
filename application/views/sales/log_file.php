@@ -11,7 +11,7 @@ var _base_url = '<?= base_url() ?>';
 
 function back()
 {
-    window.location = _base_url + 'Sales/new_upload_sales/';
+    window.location = _base_url + 'index.php/Sales/new_upload_sales/';
 }
 
 </script>
