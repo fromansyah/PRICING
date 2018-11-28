@@ -13,12 +13,12 @@ $_base_url = '<?= base_url() ?>';
 $(document).ready(function(){
 
   $('#btn_generate').click(function(){
-        window.location = $_base_url + 'Backup_db/do_backup';
+        window.location = $_base_url + 'index.php/Backup_db/do_backup';
   });
   
 
   $('#btn_cancel').click(function(){
-    window.location = $_base_url + 'Menu_utama';
+    window.location = $_base_url + 'index.php/Menu_utama';
   });
 });
 
