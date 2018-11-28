@@ -66,7 +66,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Cust_site/ajax_list/'.$cust_id)?>",
+            "url": "<?php echo site_url('index.php/Cust_site/ajax_list/'.$cust_id)?>",
             "type": "POST"
         },
 
@@ -94,7 +94,7 @@ $(document).ready(function() {
 
 function back_to_cust()
 {
-    window.location = _base_url + 'Customer/';
+    window.location = _base_url + 'index.php/Customer/';
 }
 
 function add_site()
@@ -126,7 +126,7 @@ function edit_site(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Cust_site/ajax_edit/')?>/" + id,
+        url : "<?php echo site_url('index.php/Cust_site/ajax_edit/')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -158,9 +158,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Cust_site/ajax_add')?>";
+        url = "<?php echo site_url('index.php/Cust_site/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Cust_site/ajax_update')?>";
+        url = "<?php echo site_url('index.php/Cust_site/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -204,7 +204,7 @@ function delete_site(id, site)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Cust_site/ajax_delete')?>/"+id,
+            url : "<?php echo site_url('index.php/Cust_site/ajax_delete')?>/"+id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
