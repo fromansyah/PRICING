@@ -41,11 +41,11 @@ class Report extends CI_Controller {
             $button='';
             //add html for action
             if($this->session->userdata("role") == 1){
-                $button = '<a href=\'#\' onclick="edit_report(\''.$report->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_edit.png\'></a>'.'&nbsp&nbsp&nbsp'.
-                          '<a target="_blank" href="'.$host.':8080/birt/frameset?__report='.$report->url.'"><img border=\'0\' src=\''.$this->config->item('base_url').'images/Go.png\'></a>'.'&nbsp&nbsp&nbsp'.
-                          '<a href=\'#\' onclick="delete_report(\''.$report->id.'\''.',\''.$report->name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_delete.png\'></a>';
+                $button = '<a href=\'#\' onclick="edit_report(\''.$report->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\'></a>'.'&nbsp&nbsp&nbsp'.
+                          '<a target="_blank" href="'.$host.':8080/birt/frameset?__report='.$report->url.'"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/Go.png\'></a>'.'&nbsp&nbsp&nbsp'.
+                          '<a href=\'#\' onclick="delete_report(\''.$report->id.'\''.',\''.$report->name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\'></a>';
             }else{
-                $button = '<a target="_blank" href="'.$host.':8080/birt/frameset?__report=child_age.rptdesign"><img border=\'0\' src=\''.$this->config->item('base_url').'images/Go.png\'></a>';
+                $button = '<a target="_blank" href="'.$host.':8080/birt/frameset?__report=child_age.rptdesign"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/Go.png\'></a>';
             }
             
             
