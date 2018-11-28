@@ -113,16 +113,16 @@ function add_product()
 
 function upload_product()
 {
-    window.location = _base_url + 'Product/new_upload_product/';
+    window.location = _base_url + 'index.php/Product/new_upload_product/';
 }
 
 function upload_price()
 {
-    window.location = _base_url + 'Product_price/new_upload_price/';
+    window.location = _base_url + 'index.php/Product_price/new_upload_price/';
 }
 
 function view_price(id){
-    window.location = _base_url + 'Product_price/lists/' + id.replace('/', 'slash');
+    window.location = _base_url + 'index.php/Product_price/lists/' + id.replace('/', 'slash');
 }
 
 function edit_product(id)
@@ -136,7 +136,7 @@ function edit_product(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Product/ajax_edit/')?>/" + id.replace('/', 'slash'),
+        url : "<?php echo site_url('index.php/Product/ajax_edit/')?>/" + id.replace('/', 'slash'),
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -170,9 +170,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Product/ajax_add')?>";
+        url = "<?php echo site_url('index.php/Product/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Product/ajax_update')?>";
+        url = "<?php echo site_url('index.php/Product/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -216,7 +216,7 @@ function delete_product(id, product)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Product/ajax_delete')?>/"+ id.replace('/', 'slash'),
+            url : "<?php echo site_url('index.php/Product/ajax_delete')?>/"+ id.replace('/', 'slash'),
             type: "POST",
             dataType: "JSON",
             success: function(data)
