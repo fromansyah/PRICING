@@ -14,7 +14,7 @@ class Welcome extends CI_Controller {
     function index()
     {
         if ($this->session->userdata("username")):
-            redirect("Menu_utama","refresh");
+            redirect("index.php/Menu_utama","refresh");
         else:
 //            $test = $this->Users_model->test();
 //            $data["test"] = $test;
