@@ -31,13 +31,13 @@ class Welcome extends CI_Controller {
 
         if (!($username && $password)) {
             $this->session->set_flashdata('err_message', 'ID. User dan Password harus diisi.');
-            redirect('Welcome', 'refresh');
+            redirect('index.php/Welcome', 'refresh');
         } else {
             if ($this->Users_model->login($username, $password)) {
-                redirect('Menu_utama');
+                redirect('index.php/Menu_utama');
             } else {
                 $this->session->set_flashdata('err_message', 'ID. User dan Password yang anda masukkan salah.');
-                redirect('Welcome', 'refresh');
+                redirect('index.php/Welcome', 'refresh');
             }
         }
     }
