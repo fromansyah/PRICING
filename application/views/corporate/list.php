@@ -67,7 +67,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Corporate/ajax_list')?>",
+            "url": "<?php echo site_url('index.php/Corporate/ajax_list')?>",
             "type": "POST"
         },
 
@@ -110,12 +110,12 @@ function add_corporate()
 
 function upload_corporate()
 {
-    window.location = _base_url + 'Corporate/new_upload_corporate/';
+    window.location = _base_url + 'index.php/Corporate/new_upload_corporate/';
 }
 
 
 function view_price(id){
-    window.location = _base_url + 'Corporate_price/lists/' + id.replace('/', 'slash');
+    window.location = _base_url + 'index.php/Corporate_price/lists/' + id.replace('/', 'slash');
 }
 
 function edit_corporate(id)
@@ -129,7 +129,7 @@ function edit_corporate(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Corporate/ajax_edit/')?>/" + id.replace('/', 'slash'),
+        url : "<?php echo site_url('index.php/Corporate/ajax_edit/')?>/" + id.replace('/', 'slash'),
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -162,9 +162,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Corporate/ajax_add')?>";
+        url = "<?php echo site_url('index.php/Corporate/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Corporate/ajax_update')?>";
+        url = "<?php echo site_url('index.php/Corporate/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -208,7 +208,7 @@ function delete_corporate(id, corporate)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Corporate/ajax_delete')?>/"+ id.replace('/', 'slash'),
+            url : "<?php echo site_url('index.php/Corporate/ajax_delete')?>/"+ id.replace('/', 'slash'),
             type: "POST",
             dataType: "JSON",
             success: function(data)
