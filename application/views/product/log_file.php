@@ -11,7 +11,7 @@ var _base_url = '<?= base_url() ?>';
 
 function back()
 {
-    window.location = _base_url + 'Product/new_upload_product/';
+    window.location = _base_url + 'index.php/Product/new_upload_product/';
 }
 
 </script>
