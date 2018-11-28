@@ -37,7 +37,7 @@ $(document).ready(function(){
             {id_user: id_user, password: password},
             function(data) {
                 if (data.result == 'true') {
-                    window.location = base_url+'Menu_utama';
+                    window.location = base_url+'index.php/Menu_utama';
                 } else {
                     alert('ID User atau Password yang Anda masukkan salah. ');
                     $('#id_user').select();
