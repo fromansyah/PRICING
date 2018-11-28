@@ -64,7 +64,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Role_menu/ajax_list/'.$role_id)?>",
+            "url": "<?php echo site_url('index.php/Role_menu/ajax_list/'.$role_id)?>",
             "type": "POST"
         },
 
@@ -92,7 +92,7 @@ $(document).ready(function() {
 
 function back_to_role()
 {
-    window.location = _base_url + 'Role/';
+    window.location = _base_url + 'index.php/Role/';
 }
 
 function add_role_menu()
@@ -114,7 +114,7 @@ function edit_role_menu(role_id, menu_id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Role_menu/ajax_edit/')?>/" + role_id + "/" + menu_id,
+        url : "<?php echo site_url('index.php/Role_menu/ajax_edit/')?>/" + role_id + "/" + menu_id,
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -146,9 +146,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Role_menu/ajax_add')?>";
+        url = "<?php echo site_url('index.php/Role_menu/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Role_menu/ajax_update')?>";
+        url = "<?php echo site_url('index.php/Role_menu/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -192,7 +192,7 @@ function delete_role_menu(role_id, menu_id, menu)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Role_menu/ajax_delete')?>/"+ role_id + "/" + menu_id,
+            url : "<?php echo site_url('index.php/Role_menu/ajax_delete')?>/"+ role_id + "/" + menu_id,
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -211,7 +211,7 @@ function delete_role_menu(role_id, menu_id, menu)
 }
 
 function view_role_menu(role_id) {
-  window.location = _base_url + 'Role_menu/lists/' + role_id;
+  window.location = _base_url + 'index.php/Role_menu/lists/' + role_id;
 }
 </script>
 
