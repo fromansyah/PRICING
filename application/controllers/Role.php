@@ -123,9 +123,9 @@ class Role extends CI_Controller {
 
 	foreach ($records['records']->result() as $row)
 	{
-            $button = '<a href=\'#\' onclick="edit_role(\''.$row->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/b_edit.png\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="view_role(\''.$row->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/046.png\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_role(\''.$row->id.'\''.',\''.$row->role.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/Delete.png\'></a>';
+            $button = '<a href=\'#\' onclick="edit_role(\''.$row->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/b_edit.png\'></a>'.'&nbsp&nbsp&nbsp'.
+                      '<a href=\'#\' onclick="view_role(\''.$row->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/046.png\'></a>'.'&nbsp&nbsp&nbsp'.
+                      '<a href=\'#\' onclick="delete_role(\''.$row->id.'\''.',\''.$row->role.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/Delete.png\'></a>';
             
             $record_items[] = array(
                 $row->id,
