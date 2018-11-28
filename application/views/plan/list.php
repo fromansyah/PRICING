@@ -77,7 +77,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('Plan/ajax_list')?>",
+            "url": "<?php echo site_url('index.php/Plan/ajax_list')?>",
             "type": "POST"
         },
 
@@ -106,7 +106,7 @@ $(document).ready(function() {
   $('#cust').change(function(){ //any select change on the dropdown with id country trigger this code
                 $("#site > option").remove();
                 var cust_id = $('#cust').val();
-                var post_url = _base_url + 'Cust_site/getCustSiteList/' + cust_id;
+                var post_url = _base_url + 'index.php/Cust_site/getCustSiteList/' + cust_id;
                     $.ajax({
                         type: "POST",
                         url: post_url,
@@ -144,12 +144,12 @@ function add_plan()
 
 function upload_plan()
 {
-    window.location = _base_url + 'Plan/new_upload_plan/';
+    window.location = _base_url + 'index.php/Plan/new_upload_plan/';
 }
 
 
 function view_price(id){
-    window.location = _base_url + 'Plan_price/lists/' + id.replace('/', 'slash');
+    window.location = _base_url + 'index.php/Plan_price/lists/' + id.replace('/', 'slash');
 }
 
 function edit_plan(id)
@@ -163,14 +163,14 @@ function edit_plan(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('Plan/ajax_edit/')?>/" + id.replace('/', 'slash'),
+        url : "<?php echo site_url('index.php/Plan/ajax_edit/')?>/" + id.replace('/', 'slash'),
         type: "GET",
         dataType: "JSON",
         success: function(data)
         {
             $("#site > option").remove();
                 var cust_id = data.cust_no;
-                var post_url = _base_url + 'Cust_site/getCustSiteList/' + cust_id;
+                var post_url = _base_url + 'index.php/Cust_site/getCustSiteList/' + cust_id;
                     $.ajax({
                         type: "POST",
                         url: post_url,
@@ -234,9 +234,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('Plan/ajax_add')?>";
+        url = "<?php echo site_url('index.php/Plan/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('Plan/ajax_update')?>";
+        url = "<?php echo site_url('index.php/Plan/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -280,7 +280,7 @@ function delete_plan(id, plan)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('Plan/ajax_delete')?>/"+ id.replace('/', 'slash'),
+            url : "<?php echo site_url('index.php/Plan/ajax_delete')?>/"+ id.replace('/', 'slash'),
             type: "POST",
             dataType: "JSON",
             success: function(data)
