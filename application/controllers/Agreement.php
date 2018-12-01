@@ -164,8 +164,15 @@ class Agreement extends CI_Controller {
             $site = $this->input->post('site');
             $start_date = $this->input->post('startDate');
             $ex_date = explode("-", $start_date);
-            $year = $ex_date[0];
-            $period = $ex_date[1]-1;
+            //$year = $ex_date[0];
+            //$period = $ex_date[1]-1;
+	    if($ex_date[1] == 12){
+                $year = $ex_date[0]+1;
+                $period = 1;
+            }else{
+                $year = $ex_date[0];
+                $period = $ex_date[1]-1;
+            }
 
             $plan_result = $this->Plan_model->getPlanForAgreement($product_no, $cust, $site, $year, $period);
             $plan_id = null;
