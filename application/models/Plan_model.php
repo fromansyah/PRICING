@@ -221,8 +221,8 @@ class Plan_model extends CI_Model {
                                         datediff(str_to_date(concat(plan.implementation_periode_year ,'-',plan.implementation_periode_month,'-01'), '%Y-%m-%d'), str_to_date(curdate(),'%Y-%m-%d')) - DAYOFMONTH(last_day(str_to_date(concat(plan.implementation_periode_year ,'-',plan.implementation_periode_month,'-01'),'%Y-%m-%d'))) as days
                                  from plan 
                                  where year(CURDATE()) >= plan.implementation_periode_year - 1
-                                       and datediff(str_to_date(concat(plan.implementation_periode_year ,'-',plan.implementation_periode_month,'-01'), '%Y-%m-%d'), str_to_date(curdate(),'%Y-%m-%d')) - DAYOFMONTH(last_day(str_to_date(concat(plan.implementation_periode_year ,'-',plan.implementation_periode_month,'-01'),'%Y-%m-%d'))) <= 14
-                                       and datediff(str_to_date(concat(plan.implementation_periode_year ,'-',plan.implementation_periode_month,'-01'), '%Y-%m-%d'), str_to_date(curdate(),'%Y-%m-%d')) - DAYOFMONTH(last_day(str_to_date(concat(plan.implementation_periode_year ,'-',plan.implementation_periode_month,'-01'),'%Y-%m-%d'))) >= -365
+                                       and datediff(str_to_date(concat(plan.implementation_periode_year ,'-',plan.implementation_periode_month,'-01'), '%Y-%m-%d'), str_to_date(curdate(),'%Y-%m-%d')) - DAYOFMONTH(last_day(str_to_date(concat(plan.implementation_periode_year ,'-',plan.implementation_periode_month,'-01'),'%Y-%m-%d'))) <= 15
+                                       and datediff(str_to_date(concat(plan.implementation_periode_year ,'-',plan.implementation_periode_month,'-01'), '%Y-%m-%d'), str_to_date(curdate(),'%Y-%m-%d')) - DAYOFMONTH(last_day(str_to_date(concat(plan.implementation_periode_year ,'-',plan.implementation_periode_month,'-01'),'%Y-%m-%d'))) >= -15
                                        and plan_id not in (select plan_id
                                                           from agreement
                                                           where agreement.agreement_date > curdate() - interval 1 year)");
