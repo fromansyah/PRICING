@@ -75,9 +75,9 @@ class Agreement extends CI_Controller {
             $row[] = '<div align="right">'.number_format($agreement->price, 2).'</div>';
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_agreement(\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Agreement\'></a>'.'&nbsp&nbsp&nbsp'.
+            $button = '<a href=\'#\' onclick="edit_agreement(\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_edit.png\' title=\'Edit Agreement\'></a>'.'&nbsp&nbsp&nbsp'.
 //                      '<a href=\'#\' onclick="view_price(\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/view-details.png\' title=\'View Prices\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_agreement(\''.$agreement->agreement_id.'\''.',\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Agreement\'></a>';
+                      '<a href=\'#\' onclick="delete_agreement(\''.$agreement->agreement_id.'\''.',\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_delete.png\' title=\'Delete Agreement\'></a>';
             
             $row[] = $button;
 
@@ -164,9 +164,8 @@ class Agreement extends CI_Controller {
             $site = $this->input->post('site');
             $start_date = $this->input->post('startDate');
             $ex_date = explode("-", $start_date);
-            //$year = $ex_date[0];
-            //$period = $ex_date[1]-1;
-	    if($ex_date[1] == 12){
+//            $year = $ex_date[0];
+            if($ex_date[1] == 12){
                 $year = $ex_date[0]+1;
                 $period = 1;
             }else{
@@ -217,14 +216,14 @@ class Agreement extends CI_Controller {
  
     public function ajax_update()
     {
-        if($this->input->post('year') == null || $this->input->post('year') == ''){
+        if($this->input->post('offerNo') == null || $this->input->post('offerNo') == ''){
             
-            $error_message = 'Year can not empty.';
+            $error_message = 'Offer number can not empty.';
             echo json_encode(array("status" => FALSE, 'error' => $error_message));
             
-        }elseif($this->input->post('periode') == null || $this->input->post('periode') == ''){
+        }elseif($this->input->post('date') == null || $this->input->post('date') == ''){
             
-            $error_message = 'Periode can not empty.';
+            $error_message = 'Agreement date can not empty.';
             echo json_encode(array("status" => FALSE, 'error' => $error_message));
             
         }elseif($this->input->post('product') == null || $this->input->post('product') == ''){
@@ -244,7 +243,17 @@ class Agreement extends CI_Controller {
             
         }elseif($this->input->post('sp') == null || $this->input->post('sp') == ''){
             
-            $error_message = 'Customer can not empty.';
+            $error_message = 'Sales person can not empty.';
+            echo json_encode(array("status" => FALSE, 'error' => $error_message));
+            
+        }elseif($this->input->post('cam') == null || $this->input->post('cam') == ''){
+            
+            $error_message = 'CAM can not empty.';
+            echo json_encode(array("status" => FALSE, 'error' => $error_message));
+            
+        }elseif($this->input->post('baType') == null || $this->input->post('baType') == ''){
+            
+            $error_message = 'BA type can not empty.';
             echo json_encode(array("status" => FALSE, 'error' => $error_message));
             
         }elseif($this->input->post('startDate') == null || $this->input->post('startDate') == ''){
@@ -264,26 +273,41 @@ class Agreement extends CI_Controller {
             
         }else{
             $product_no = $this->input->post('product');
-            $year = $this->input->post('year');
-            $period = $this->input->post('periode');
+            $cust = $this->input->post('cust');
+            $site = $this->input->post('site');
+            $start_date = $this->input->post('startDate');
+            $ex_date = explode("-", $start_date);
+//            $year = $ex_date[0];
+            if($ex_date[1] == 12){
+                $year = $ex_date[0]+1;
+                $period = 1;
+            }else{
+                $year = $ex_date[0];
+                $period = $ex_date[1]-1;
+            }
 
-            $price_result = $this->Product_price_model->getProductPriceByPeriod($product_no, $year, $period);
-            $price_id = null;
-            if(count($price_result) > 0){
-                $price_id = $price_result[0]->price_id;
+            $plan_result = $this->Plan_model->getPlanForAgreement($product_no, $cust, $site, $year, $period);
+            $plan_id = null;
+            if(count($plan_result) > 0){
+                $plan_id = $plan_result[0]->plan_id;
             }
             
             $data = array(
-                    'implementation_periode_year' => $this->input->post('year'),
-                    'implementation_periode_month' => $this->input->post('periode'),
+                    'offer_no' => $this->input->post('offerNo'),
+                    'agreement_date' => $this->input->post('date'),
                     'product_no' => $this->input->post('product'),
                     'cust_no' => $this->input->post('cust'),
-                    'cust_site' => $this->input->post('site'),
+                    'site_id' => $this->input->post('site'),
                     'sp_id' => $this->input->post('sp'),
+                    'cam_id' => $this->input->post('cam'),
+                    'ba_type' => $this->input->post('baType'),
                     'start_date' => $this->input->post('startDate'),
                     'end_date' => $this->input->post('endDate'),
+                    'currency' => $this->input->post('currency'),
                     'price' => $this->input->post('price'),
-                    'price_id' => $price_id,
+                    'rate' => $this->input->post('rate'),
+                    'note' => $this->input->post('note'),
+                    'plan_id' => $plan_id,
                     'last_update_by' => $this->session->userdata("username"),
                     'last_update_date' => date('Y-m-d H:i:s', strtotime('now'))
                 );
@@ -359,13 +383,13 @@ class Agreement extends CI_Controller {
                 $ex_date = explode("-", $start_date);
                 //$year = $ex_date[0];
                 //$period = $ex_date[1]-1;
-		if($ex_date[1] == 12){
-			$year = $ex_date[0]+1;
-			$period = 1;
-		    }else{
-			$year = $ex_date[0];
-			$period = $ex_date[1]-1;
-		    }
+                if($ex_date[1] == 12){
+                    $year = $ex_date[0]+1;
+                    $period = 1;
+                }else{
+                    $year = $ex_date[0];
+                    $period = $ex_date[1]-1;
+                }
 
                 $plan_result = $this->Plan_model->getPlanForAgreement($product_no, $customer, $site, $year, $period);
                 $plan_id = null;
