@@ -357,8 +357,15 @@ class Agreement extends CI_Controller {
                 $note = trim($field[13]);
                 
                 $ex_date = explode("-", $start_date);
-                $year = $ex_date[0];
-                $period = $ex_date[1]-1;
+                //$year = $ex_date[0];
+                //$period = $ex_date[1]-1;
+		if($ex_date[1] == 12){
+			$year = $ex_date[0]+1;
+			$period = 1;
+		    }else{
+			$year = $ex_date[0];
+			$period = $ex_date[1]-1;
+		    }
 
                 $plan_result = $this->Plan_model->getPlanForAgreement($product_no, $customer, $site, $year, $period);
                 $plan_id = null;
