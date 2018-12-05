@@ -89,7 +89,7 @@ foreach ($_SERVER as $key => $value) {
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }*/
 
-$db['default']['hostname'] = "pricing-app-mysqldbserver.mysql.database.azure.com";
+$db['default']['hostname'] = getenv('PRICING_DB_HOST');
 $db['default']['username'] = "fromansyah@pricing-app-mysqldbserver";
 $db['default']['password'] = "Passw0rd";
 $db['default']['database'] = "pricing";
@@ -101,6 +101,10 @@ $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = "";
 $db['default']['char_set'] = "utf8";
 $db['default']['dbcollat'] = "utf8_general_ci";
+$db['default']['encrypt'] = array(
+        'ssl_ca' => realpath('BaltimoreCyberTrustRoot.crt.pem'),
+        'ssl_verify' => FALSE
+    );
 
 /*$db['default'] = array(
 	'dsn'	=> '',
