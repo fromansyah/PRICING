@@ -57,7 +57,7 @@ $(document).ready(function() {
         }
 
     $('#btn_cancel').click(function(){
-        window.location = $_base_url + 'Corporate/';
+        window.location = $_base_url + 'index.php/Corporate/';
     });
 
     $('#download_template').click(function(){
