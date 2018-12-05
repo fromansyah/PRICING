@@ -90,9 +90,9 @@ foreach ($_SERVER as $key => $value) {
 }*/
 
 $db['default']['hostname'] = getenv('PRICING_DB_HOST');
-$db['default']['username'] = "fromansyah@pricing-app-mysqldbserver";
-$db['default']['password'] = "Passw0rd";
-$db['default']['database'] = "pricing";
+$db['default']['username'] = getenv('PRICING_DB_USERNAME');
+$db['default']['password'] = getenv('PRICING_DB_PASSWORD');
+$db['default']['database'] = getenv('PRICING_DB_NAME');
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = TRUE;
