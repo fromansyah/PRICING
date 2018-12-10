@@ -20,7 +20,7 @@ $config['directory_identifier'] = '<your directory identifier or domain name>';
  *
  * E.g. $config['client_id'] = '2916ea73-ecdf-4ed4-94ad-4a30a6e7a3c3';
  */
-$config['client_id'] = '<paste your client ID here>';
+$config['client_id'] = 'f9381a38-ba6a-401a-95c7-3d47abc8789e';
 
 
 /**
@@ -28,7 +28,7 @@ $config['client_id'] = '<paste your client ID here>';
  *
  * E.g. $config['client_secret'] = '9ltvIfj9zVISfYyR5oEdmBmbnDBsEPDAZpJeURgpidEj';
  */
-$config['client_secret'] = '<paste your secret key here>';
+$config['client_secret'] = 'O;qu^2k&!E_{U=?;/';
 
 /**
  * The segment of this application that will be used as the redirect URI.
