@@ -6,7 +6,7 @@ class Welcome extends CI_Controller {
     public function __construct()
     {
 	parent::__construct();
-	$this->load->library('aad_auth');
+	//$this->load->library('aad_auth');
 //        $this->load->model('Assets_model', 'Assets_model');
         $this->load->model('Users_model', 'Users_model');
         
