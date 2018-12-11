@@ -14,7 +14,7 @@ class Welcome extends CI_Controller {
 
     function index()
     {
-	$this->load->library('session');
+	/*$this->load->library('session');
         $state = $this->input->get('state');
         $error = $this->input->get('error');
         $code = $this->input->get('code');
@@ -38,7 +38,7 @@ class Welcome extends CI_Controller {
                 echo '<pre>'; var_dump($this->input->get()); echo '</pre>';
                 $this->aad_auth->request_tokens($this->input->get('code'), $this->session->aad_auth_nonce);
             }
-        }
+        }*/
 	    
         /*if ($this->session->userdata("username")):
             redirect("index.php/Menu_utama","refresh");
