@@ -29,8 +29,11 @@ class Welcome extends CI_Controller {
 	    if ($this->Users_model->email_login($token->email)) {
                 redirect('index.php/Menu_utama');
             } else {
-                $this->session->set_flashdata('err_message', 'You are not allowed to access this page.');
-                redirect('index.php/Welcome', 'refresh');
+                //$this->session->set_flashdata('err_message', 'You are not allowed to access this page.');
+                //redirect('index.php/Welcome', 'refresh');
+		$data['title'] = 'Error Page';
+		$data["content"] = $this->load->view('error',$data,true);
+            	$this->load->view("blank", $data);
             }
 		
             //$data["content"] = $this->load->view('vlogin',$data,true);
