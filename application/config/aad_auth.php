@@ -36,7 +36,7 @@ $config['client_secret'] = 'RMGNC1Uv5QDHA6PAAI2F5OaCEzcpVvZfTKIaY3/lboo=';
  * This will be used as the parameter to site_url().
  * E.g. $config['redirect_uri_segment'] = 'sample/handle_response';
  */
-$config['redirect_uri_segment'] = 'index.php/Main';
+$config['redirect_uri_segment'] = 'index.php/Menu_utama';
 
 
 
