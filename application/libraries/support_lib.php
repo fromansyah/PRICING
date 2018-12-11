@@ -11,22 +11,25 @@ class support_lib
     }
 
     function check_login() {
-//         if (!$this->CI->aad_auth->is_logged_in())
-//         {
-//             //$return_to = $this->input->get('return_to');
-//             //$this->aad_auth->login($return_to === NULL ? site_url() : $return_to);
-// 		    $this->CI->aad_auth->login();
-//         }
-//         else
-//         {
-            if ($this->CI->session->userdata('username')) {
+        if (!$this->CI->aad_auth->is_logged_in())
+        {
+            //$return_to = $this->input->get('return_to');
+            //$this->aad_auth->login($return_to === NULL ? site_url() : $return_to);
+		    $this->CI->aad_auth->login();
+        }
+        else
+        {
+            return true;
+        }
+        
+            /*if ($this->CI->session->userdata('username')) {
                 return true;
             } else {
                 redirect('index.php/Main');
                 //redirect('https://www.office.com/');
                 return false;
-            }
-//         }
+            }*/
+
         
     }
   		
