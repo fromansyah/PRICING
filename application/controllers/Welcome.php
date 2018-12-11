@@ -16,7 +16,9 @@ class Welcome extends CI_Controller {
     {
 	if (!$this->aad_auth->is_logged_in())
         {
-            $this->aad_auth->login();
+            //$this->aad_auth->login();
+	    $return_to = $this->config->item('base_url').'/index.php/Welcome';
+            $this->aad_auth->login($return_to === NULL ? site_url() : $return_to);
         }
         else
         {
