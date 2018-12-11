@@ -84,7 +84,7 @@ class Welcome extends CI_Controller {
         $this->session->unset_userdata('nik');
         $this->session->unset_userdata('emp_id');
 	
-	$return_to = $this->config->item('base_url').'/index.php/Menu_utama';
+	$return_to = $this->config->item('base_url').'/index.php/Main';
         $this->aad_auth->logout($return_to === NULL ? site_url() : $return_to);
 	//$this->aad_auth->logout();
 	    
@@ -101,6 +101,6 @@ class Welcome extends CI_Controller {
         $this->session->unset_userdata('template');
         $this->session->unset_userdata('edit_template');
         
-        redirect('index.php/Menu_utama', 'refresh');
+        redirect('index.php/main', 'refresh');
     }
 }
