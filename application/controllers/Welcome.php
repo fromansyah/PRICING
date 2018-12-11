@@ -33,8 +33,8 @@ class Welcome extends CI_Controller {
                 redirect('index.php/Welcome', 'refresh');
             }
 		
-            $data["content"] = $this->load->view('vlogin',$data,true);
-            $this->load->view("login", $data);
+            //$data["content"] = $this->load->view('vlogin',$data,true);
+            //$this->load->view("login", $data);
         }
 	    
 	    /*if ($this->session->userdata("username")):
