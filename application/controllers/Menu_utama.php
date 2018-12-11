@@ -21,7 +21,7 @@ class Menu_utama extends CI_Controller {
     }
     
     public function index(){
-       $this->load->library('session');
+       /*$this->load->library('session');
         $state = $this->input->get('state');
         $error = $this->input->get('error');
         $code = $this->input->get('code');
@@ -45,7 +45,7 @@ class Menu_utama extends CI_Controller {
                 echo '<pre>'; var_dump($this->input->get()); echo '</pre>';
                 $this->aad_auth->request_tokens($this->input->get('code'), $this->session->aad_auth_nonce);
             }
-        }
+        }*/
         
         $data['title'] = 'Main Menu';
         
