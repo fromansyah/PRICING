@@ -6,7 +6,7 @@ class Welcome extends CI_Controller {
     public function __construct()
     {
 	parent::__construct();
-	//$this->load->library('aad_auth');
+	$this->load->library('aad_auth');
 //        $this->load->model('Assets_model', 'Assets_model');
         $this->load->model('Users_model', 'Users_model');
         
@@ -112,9 +112,9 @@ class Welcome extends CI_Controller {
         $this->session->unset_userdata('nik');
         $this->session->unset_userdata('emp_id');
 	
-	//$return_to = $this->input->get('return_to');
-        //$this->aad_auth->logout($return_to === NULL ? site_url() : $return_to);
-	$this->aad_auth->logout();
+	$return_to = $this->input->get('return_to');
+        $this->aad_auth->logout($return_to === NULL ? site_url() : $return_to);
+	//$this->aad_auth->logout();
 	    
 	
         
