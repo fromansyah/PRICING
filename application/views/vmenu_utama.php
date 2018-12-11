@@ -120,7 +120,7 @@ function view_plan() {
                                 <?  foreach ($notification as $row):
                                         if($row->notif_count > 0):?>
                                 <tr>
-                                  <td align="left"><b><a style="font-size: 15px;" href="#" onclick="<?=$row->link?>('<?=$this->session->userdata("emp_id")?>')"><button class="<?=$row->class?>"><?=$row->notification?></button></a></b></td>
+                                  <td align="left"><b><a style="font-size: 15px;" href="#" onclick="<?=$row->link?>('<?=$this->session->userdata("emp_id")?>')"><button class="<?=$row->class?>">&nbsp;<?=$row->notification?></button></a></b></td>
                                 </tr>
                                 <?      endif;
                                     endforeach;?>
