@@ -22,7 +22,7 @@ class support_lib
             if ($this->CI->session->userdata('username')) {
                 return true;
             } else {
-                redirect('index.php/Welcome');
+                redirect('index.php/Main');
                 //redirect('https://www.office.com/');
                 return false;
             }
