@@ -12,27 +12,22 @@ class Menu_utama extends CI_Controller {
         $this->load->library('aad_auth');
         $this->load->library('Dynamic_menu');
         $this->load->helper('url');
-//        $this->load->model('User_model', 'User_model');
-//        $this->load->model('Product_model', 'Product_model');
-//        $this->load->model('Customer_model', 'Customer_model');
-//        $this->load->model('Cust_site_model', 'Cust_site_model');
         $this->load->model('Plan_model', 'Plan_model');
-//        $this->load->library('fusioncharts');
     }
     
     public function index(){
-        if (!$this->aad_auth->is_logged_in())
+        /*if (!$this->aad_auth->is_logged_in())
         {
             $this->aad_auth->login();
         }
         else
-        {
+        {*/
             $data['title'] = 'Main Menu';
             $notification = $this->Plan_model->getPlanNotificationList();
             $data['notification'] = $notification;
             $data['content'] = $this->load->view('vmenu_utama',$data,true);
             $this->load->view($this->session->userdata("template"), $data);
-        }
+        //}
         /*if ($this->session->userdata("username")):
             $data['title'] = 'Main Menu';
         
