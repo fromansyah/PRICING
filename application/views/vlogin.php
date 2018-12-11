@@ -104,6 +104,12 @@ $(document).ready(function(){
                     <p>
                         <input type="button" value="LogIn" id="btn_ok" align="middle" class="button_login"/>
                     </p>
+		    <p>
+			<? print_r($user_info);?>
+		    </p>
+		    <p>
+			<? print_r($id_token);?>
+		    </p>
             </div>
             </td>
         </tr>
