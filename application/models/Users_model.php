@@ -122,6 +122,43 @@ class Users_model extends CI_Model {
             return true;
         }
     }
+    
+    function email_login($email) {
+        $email = $this->db->escape($email);
+
+        $result = $this->db->query("SELECT a.id,
+                                    a.username,
+                                    a.fullname,
+                                    a.user_group,
+                                    a.role
+                                    FROM user a
+                                    WHERE a.email=$email");
+
+        //return false;
+        if ($result->num_rows() == 0) {
+            return false;
+        } else {
+            $result = $result->row();
+            $this->session->set_userdata('user_id',$result->id);
+            $this->session->set_userdata('username',$result->username);
+            $this->session->set_userdata('fullname',$result->fullname);
+            $this->session->set_userdata('user_group',$result->user_group);
+            $this->session->set_userdata('role',$result->role);
+
+            if($result->user_group == 'ADMIN'){
+                $this->session->set_userdata('mode','USER');
+                $this->session->set_userdata('template','user_utama');
+                $this->session->set_userdata('edit_template','edit');
+            }else{
+                $this->session->set_userdata('mode','USER');
+                $this->session->set_userdata('template','user_utama');
+                $this->session->set_userdata('edit_template','user_edit');
+            }
+            
+            return true;
+        }
+    }
+
 
     function list_login($emp_id){
         //$result = $this->db->query("select user.id, user.username from user where id not in (select distinct(login_id) from employee) union select user.id, user.username from user, employee where id = login_id and EMPLOYEE_ID = $emp_id");
