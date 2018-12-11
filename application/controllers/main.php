@@ -11,7 +11,7 @@ public function __construct()
 
     function index()
     { 
-	    $this->load->library('session');
+	    /*$this->load->library('session');
         $state = $this->input->get('state');
         $error = $this->input->get('error');
         $code = $this->input->get('code');
@@ -35,7 +35,8 @@ public function __construct()
                 echo '<pre>'; var_dump($this->input->get()); echo '</pre>';
                 $this->aad_auth->request_tokens($this->input->get('code'), $this->session->aad_auth_nonce);
             }
-        }
+        }*/
+	    
 	if (!$this->aad_auth->is_logged_in())
         {
             //$return_to = $this->input->get('return_to');
