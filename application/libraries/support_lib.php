@@ -13,10 +13,10 @@ class support_lib
     function check_login() {
         if (!$this->CI->aad_auth->is_logged_in())
         {
-            $return_to = $this->config->item('base_url').'/index.php/Welcome';
-            $this->aad_auth->login($return_to === NULL ? site_url() : $return_to);
-	    //redirect('index.php/Welcome');
-            //return false;
+            //$return_to = $this->config->item('base_url').'/index.php/Welcome';
+            //$this->aad_auth->login($return_to === NULL ? site_url() : $return_to);
+	    redirect('index.php/Welcome');
+            return false;
         }
         else
         {
