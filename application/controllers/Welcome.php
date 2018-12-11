@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
 		$error = $this->input->get('error');
 		$code = $this->input->get('code');
 		// Regardless if authentication was successful or not, the state value MUST be the expected one.
-		if ($this->session->aad_auth_nonce === NULL || $this->session->aad_auth_nonce !== $state)
+		/*if ($this->session->aad_auth_nonce === NULL || $this->session->aad_auth_nonce !== $state)
 		{
 		    die('State value returned (\'' . $state . '\') is not the value expected (\''
 			 . $this->session->aad_auth_nonce . '\').');
@@ -40,7 +40,8 @@ class Welcome extends CI_Controller {
 			echo '<pre>'; var_dump($this->input->get()); echo '</pre>';
 			$this->aad_auth->request_tokens($this->input->get('code'), $this->session->aad_auth_nonce);
 		    }
-		}
+		}*/
+		$this->aad_auth->request_tokens($this->input->get('code'), $this->session->aad_auth_nonce);
             $this->aad_auth->login();
         }
         else
