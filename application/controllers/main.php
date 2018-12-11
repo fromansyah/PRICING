@@ -11,6 +11,11 @@ public function __construct()
 
     function index()
     { 
+	$this->load->library('session');
+        $state = $this->input->get('state');
+        $error = $this->input->get('error');
+        $code = $this->input->get('code');
+	    
         if ($this->session->userdata("username")):
             redirect("index.php/Menu_utama","refresh");
         else:
