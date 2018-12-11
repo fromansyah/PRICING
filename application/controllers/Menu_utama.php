@@ -24,9 +24,9 @@ class Menu_utama extends CI_Controller {
         if ($this->session->userdata("username")):
             $data['title'] = 'Main Menu';
         
-            //$notification = $this->Plan_model->getPlanNotificationList();
+            $notification = $this->Plan_model->getPlanNotificationList();
 
-            //$data['notification'] = $notification;
+            $data['notification'] = $notification;
 
             $data['content'] = $this->load->view('vmenu_utama',$data,true);
             $this->load->view($this->session->userdata("template"), $data);
