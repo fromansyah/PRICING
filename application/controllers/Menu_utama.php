@@ -21,14 +21,21 @@ class Menu_utama extends CI_Controller {
     }
     
     public function index(){
-        $data['title'] = 'Main Menu';
+        if ($this->session->userdata("username")):
+            $data['title'] = 'Main Menu';
         
-        $notification = $this->Plan_model->getPlanNotificationList();
+            $notification = $this->Plan_model->getPlanNotificationList();
+
+            $data['notification'] = $notification;
+
+            $data['content'] = $this->load->view('vmenu_utama',$data,true);
+            $this->load->view($this->session->userdata("template"), $data);
+        else:
+            $data["title"] = "Login";
+            $data["content"] = $this->load->view('vlogin',$data,true);
+            $this->load->view("login", $data);
+        endif;
         
-        $data['notification'] = $notification;
-        
-        $data['content'] = $this->load->view('vmenu_utama',$data,true);
-        $this->load->view($this->session->userdata("template"), $data);
     }
 }
 ?>
