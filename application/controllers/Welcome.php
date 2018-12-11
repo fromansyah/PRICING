@@ -65,9 +65,9 @@ class Welcome extends CI_Controller {
         $this->session->unset_userdata('nik');
         $this->session->unset_userdata('emp_id');
 	
-	//$return_to = $this->input->get('return_to');
-        //$this->aad_auth->logout($return_to === NULL ? site_url() : $return_to);
-	$this->aad_auth->logout();
+	$return_to = 'index.php/Menu_utama';
+        $this->aad_auth->logout($return_to === NULL ? site_url() : $return_to);
+	//$this->aad_auth->logout();
 	    
 	
         
