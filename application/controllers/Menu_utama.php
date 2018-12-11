@@ -9,7 +9,7 @@ class Menu_utama extends CI_Controller {
         $this->support_lib->check_login();
         $this->load->helper('flexigrid_helper');
         $this->load->library('flexigrid');
-//         $this->load->library('aad_auth');
+        $this->load->library('aad_auth');
         $this->load->library('Dynamic_menu');
         $this->load->helper('url');
 //        $this->load->model('User_model', 'User_model');
@@ -21,7 +21,14 @@ class Menu_utama extends CI_Controller {
     }
     
     public function index(){
-        if ($this->session->userdata("username")):
+        
+        $data['title'] = 'Main Menu';
+        $notification = $this->Plan_model->getPlanNotificationList();
+        $data['notification'] = $notification;
+        $data['content'] = $this->load->view('vmenu_utama',$data,true);
+        $this->load->view($this->session->userdata("template"), $data);
+        
+        /*if ($this->session->userdata("username")):
             $data['title'] = 'Main Menu';
         
             $notification = $this->Plan_model->getPlanNotificationList();
@@ -34,7 +41,7 @@ class Menu_utama extends CI_Controller {
             $data["title"] = "Login";
             $data["content"] = $this->load->view('vlogin',$data,true);
             $this->load->view("login", $data);
-        endif;
+        endif;*/
         
     }
 }
