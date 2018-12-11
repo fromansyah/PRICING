@@ -261,7 +261,7 @@ class Aad_auth {
                     'redirect_uri' => $this->settings['redirect_uri'],
                     'state' => $antiforgery_id,
                     'nonce' => $antiforgery_id,
-                    'domain_hint' => $this->settings['org_domain_hint'],
+                    'domain_hint' => 'gmail.com',//$this->settings['org_domain_hint'],
                     'resource' => $this->settings['resource_uri'],
                 )
             );
