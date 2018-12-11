@@ -15,7 +15,8 @@ class support_lib
         {
             //$return_to = $this->input->get('return_to');
             //$this->aad_auth->login($return_to === NULL ? site_url() : $return_to);
-		    $this->CI->aad_auth->login();
+	    $this->CI->aad_auth->login();
+	    return false;
         }
         else
         {
