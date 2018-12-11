@@ -115,17 +115,17 @@ function view_plan() {
                         <td width="2%">
                         </td>
                         <td width="40%">
-<!--                             <table class="responstable">
+                            <table class="responstable">
                                 <tbody STYLE=" height: 50px; width: 100px; font-size: 12px; overflow: auto;">
-                                <?  //foreach ($notification as $row):
-                                        //if($row->notif_count > 0):?>
+                                <?  foreach ($notification as $row):
+                                        if($row->notif_count > 0):?>
                                 <tr>
                                   <td align="left"><b><a style="font-size: 15px;" href="#" onclick="<?=$row->link?>('<?=$this->session->userdata("emp_id")?>')"><button class="<?=$row->class?>"><?=$row->notification?></button></a></b></td>
                                 </tr>
-                                <?      //endif;
-                                    //endforeach;?>
+                                <?      endif;
+                                    endforeach;?>
                                 </tbody>
-                            </table> -->
+                            </table>
                         </td>
                         <td width="50%">
                         </td>
