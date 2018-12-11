@@ -37,14 +37,14 @@ public function __construct()
             }
         }*/
 	    
-	if (!$this->aad_auth->is_logged_in())
+	/*if (!$this->aad_auth->is_logged_in())
         {
             //$return_to = $this->input->get('return_to');
             //$this->aad_auth->login($return_to === NULL ? site_url() : $return_to);
 		$this->aad_auth->login();
         }
         else
-        {
+        {*/
 	    if ($this->session->userdata("username")):
             	redirect("index.php/Menu_utama","refresh");
 	    else:
@@ -57,7 +57,7 @@ public function __construct()
 		$this->load->view("login", $data);
 	    endif;
             
-        }
+        //}
 	    
         /*if ($this->session->userdata("username")):
             redirect("index.php/Menu_utama","refresh");
