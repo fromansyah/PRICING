@@ -3,7 +3,7 @@ class main extends CI_Controller {
 public function __construct()
     {
 	parent::__construct();
-	//$this->load->library('aad_auth');
+	$this->load->library('aad_auth');
 //        $this->load->model('Assets_model', 'Assets_model');
 //        $this->load->model('Users_model', 'Users_model');
         
@@ -11,7 +11,7 @@ public function __construct()
 
     function index()
     { 
-	    /*$this->load->library('session');
+	$this->load->library('session');
         $state = $this->input->get('state');
         $error = $this->input->get('error');
         $code = $this->input->get('code');
@@ -35,7 +35,7 @@ public function __construct()
                 echo '<pre>'; var_dump($this->input->get()); echo '</pre>';
                 $this->aad_auth->request_tokens($this->input->get('code'), $this->session->aad_auth_nonce);
             }
-        }*/
+        }
 	    
 	/*if (!$this->aad_auth->is_logged_in())
         {
