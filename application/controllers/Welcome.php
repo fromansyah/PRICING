@@ -71,7 +71,7 @@ class Welcome extends CI_Controller {
 			$this->aad_auth->request_tokens($this->input->get('code'), $this->session->aad_auth_nonce);
 		    }
 		}*/
-		$this->aad_auth->request_tokens($this->input->get('code'), $this->session->aad_auth_nonce);
+		$this->aad_auth->request_tokens($this->input->get('code'), 'c6192ab6-709c-46eb-b991-25b812244234'/*$this->session->aad_auth_nonce*/);
             if ($this->session->userdata("username")):
                 redirect("index.php/Menu_utama","refresh");
             else:
