@@ -11,7 +11,8 @@ By JavaScript Kit (javascriptkit.com)
 Over 200+ free scripts here!
 */
 //enter refresh time in "minutes:seconds" Minutes should range from 0 to inifinity. Seconds should range from 0 to 59
-var limit="15:00"
+    
+/*var limit="15:00"
 var $_base_url = '<?= base_url() ?>';
 
 if (document.images){
@@ -42,7 +43,7 @@ function beginrefresh(){
     }
 }
 
-window.onload=beginrefresh
+window.onload=beginrefresh*/
 
 function view_plan() {
       window.location = 'http://pricing-app-tomcat.azurewebsites.net/birt/frameset?__report=plan_notif_report.rptdesign&__format=xls';
