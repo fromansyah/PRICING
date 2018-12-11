@@ -6,7 +6,7 @@ class Menu_utama extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        //$this->support_lib->check_login();
+        $this->support_lib->check_login();
         $this->load->helper('flexigrid_helper');
         $this->load->library('flexigrid');
         $this->load->library('aad_auth');
