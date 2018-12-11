@@ -3,7 +3,7 @@ class main extends CI_Controller {
 public function __construct()
     {
 	parent::__construct();
-	$this->load->library('aad_auth');
+// 	$this->load->library('aad_auth');
 //        $this->load->model('Assets_model', 'Assets_model');
 //        $this->load->model('Users_model', 'Users_model');
         
@@ -11,61 +11,13 @@ public function __construct()
 
     function index()
     { 
-	$this->load->library('session');
-        $state = $this->input->get('state');
-        $error = $this->input->get('error');
-        $code = $this->input->get('code');
-        // Regardless if authentication was successful or not, the state value MUST be the expected one.
-        if ($this->session->aad_auth_nonce === NULL || $this->session->aad_auth_nonce !== $state)
-        {
-            die('State value returned (\'' . $state . '\') is not the value expected (\''
-                 . $this->session->aad_auth_nonce . '\').');
-        }
-        else
-        {
-            if ($error !== NULL || $code === NULL)
-            {
-                // Error during authentication
-                echo '<pre>' . $error . '</pre>';
-                echo '<pre>' . $this->input->get('error_description') . '</pre>';
-            }
-            else
-            {
-                // Successful authentication, now use the authentication code to get an Access Token and ID Token
-                echo '<pre>'; var_dump($this->input->get()); echo '</pre>';
-                $this->aad_auth->request_tokens($this->input->get('code'), $this->session->aad_auth_nonce);
-            }
-        }
-	    
-	/*if (!$this->aad_auth->is_logged_in())
-        {
-            //$return_to = $this->input->get('return_to');
-            //$this->aad_auth->login($return_to === NULL ? site_url() : $return_to);
-		$this->aad_auth->login();
-        }
-        else
-        {*/
-	    if ($this->session->userdata("username")):
-            	redirect("index.php/Menu_utama","refresh");
-	    else:
-		$data = array(
-                'user_info' => $this->aad_auth->user_info(),
-                'id_token'  => $this->aad_auth->id_token(),
-            	);
-		
-		$data["content"] = $this->load->view('vlogin',$data,true);
-		$this->load->view("login", $data);
-	    endif;
-            
-        //}
-	    
-        /*if ($this->session->userdata("username")):
+        if ($this->session->userdata("username")):
             redirect("index.php/Menu_utama","refresh");
         else:
             $data["title"] = "Login";
             $data["content"] = $this->load->view('vlogin',$data,true);
             $this->load->view("login", $data);
-        endif;*/
+        endif;
     }
 
     function login(/*$username, $password*/)
