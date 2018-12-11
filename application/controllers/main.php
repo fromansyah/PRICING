@@ -11,7 +11,7 @@ public function __construct()
 
     function index()
     { 
-	/*if (!$this->aad_auth->is_logged_in())
+	if (!$this->aad_auth->is_logged_in())
         {
             //$return_to = $this->input->get('return_to');
             //$this->aad_auth->login($return_to === NULL ? site_url() : $return_to);
@@ -25,15 +25,15 @@ public function __construct()
             );
             $data["content"] = $this->load->view('vlogin',$data,true);
             $this->load->view("login", $data);
-        }*/
+        }
 	    
-        if ($this->session->userdata("username")):
+        /*if ($this->session->userdata("username")):
             redirect("index.php/Menu_utama","refresh");
         else:
             $data["title"] = "Login";
             $data["content"] = $this->load->view('vlogin',$data,true);
             $this->load->view("login", $data);
-        endif;
+        endif;*/
     }
 
     function login(/*$username, $password*/)
