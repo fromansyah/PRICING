@@ -23,7 +23,10 @@ class Welcome extends CI_Controller {
             if ($this->session->userdata("username")):
                 redirect("index.php/Menu_utama","refresh");
             else:
-                $data["title"] = "Login";
+                $data = array(
+                	'user_info' => $this->aad_auth->user_info(),
+                	'id_token'  => $this->aad_auth->id_token(),
+                );
                 $data["content"] = $this->load->view('vlogin',$data,true);
                 $this->load->view("login", $data);
             endif;
