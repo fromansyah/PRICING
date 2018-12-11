@@ -6,7 +6,7 @@ class Welcome extends CI_Controller {
     public function __construct()
     {
 	parent::__construct();
-// 	$this->load->library('aad_auth');
+	$this->load->library('aad_auth');
 //        $this->load->model('Assets_model', 'Assets_model');
         $this->load->model('Users_model', 'Users_model');
         
@@ -14,13 +14,22 @@ class Welcome extends CI_Controller {
 
     function index()
     {
-	if ($this->session->userdata("username")):
-            redirect("index.php/Menu_utama","refresh");
-        else:
-            $data["title"] = "Login";
-            $data["content"] = $this->load->view('vlogin',$data,true);
-            $this->load->view("login", $data);
-        endif;
+	if (!$this->aad_auth->is_logged_in())
+        {
+            $this->aad_auth->login();
+        }
+        else
+        {
+            if ($this->session->userdata("username")):
+                redirect("index.php/Menu_utama","refresh");
+            else:
+                $data["title"] = "Login";
+                $data["content"] = $this->load->view('vlogin',$data,true);
+                $this->load->view("login", $data);
+            endif;
+        }
+	    
+	
     }
 
     function login(/*$username, $password*/)
