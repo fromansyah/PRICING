@@ -9,7 +9,7 @@ class Menu_utama extends CI_Controller {
         $this->support_lib->check_login();
         $this->load->helper('flexigrid_helper');
         $this->load->library('flexigrid');
-        $this->load->library('aad_auth');
+        //$this->load->library('aad_auth');
         $this->load->library('Dynamic_menu');
         $this->load->helper('url');
 //        $this->load->model('User_model', 'User_model');
