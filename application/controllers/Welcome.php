@@ -121,6 +121,6 @@ class Welcome extends CI_Controller {
         $this->session->unset_userdata('template');
         $this->session->unset_userdata('edit_template');
         
-        redirect('index.php/Welcome', 'refresh');
+        redirect('index.php/Main', 'refresh');
     }
 }
