@@ -46,7 +46,7 @@ function beginrefresh(){
 window.onload=beginrefresh
 
 function view_plan() {
-      window.location = 'http://pricing-app-tomcat.azurewebsites.net/birt/frameset?__report=plan_notif_report.rptdesign&__format=xls';
+      window.location = 'http://pricing-tomcat.azurewebsites.net/birt/frameset?__report=plan_notif_report.rptdesign&__format=xls';
 }
 
 </script>
