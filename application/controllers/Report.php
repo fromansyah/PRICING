@@ -28,7 +28,7 @@ class Report extends CI_Controller {
         $base_url = base_url();
         $base_url_explode = explode('/', $base_url);
         //$host = $base_url_explode[0].'//'.$base_url_explode[2];
-	$host = 'http://pricing-app-tomcat.azurewebsites.net';
+	$host = 'http://pricing-tomcat.azurewebsites.net';
         $list = $this->Report_model->get_datatables();
         $data = array();
         $no = $_POST['start'];
