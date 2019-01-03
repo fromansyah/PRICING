@@ -12,5 +12,6 @@ header("Expires: 0");
         <td>EMAIL</td>
         <td>POSITION</td>
         <td>NOTE</td>
+        <td>SUBSCRIBE</td>
     </tr>
 </table>
