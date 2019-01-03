@@ -28,6 +28,7 @@
                     <th>Employee Name</th>
                     <th>Email</th>
                     <th>Position</th>
+                    <th>Subscribe</th>
                     <th style="width:30px;">Action</th>
                 </tr>
             </thead>
@@ -40,6 +41,7 @@
                     <th>Employee Name</th>
                     <th>Email</th>
                     <th>Position</th>
+                    <th>Subscribe</th>
                     <th>Action</th>
                 </tr>
             </tfoot>
@@ -69,7 +71,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('index.php/Employee/ajax_list')?>",
+            "url": "<?php echo site_url('Employee/ajax_list')?>",
             "type": "POST"
         },
 
@@ -112,7 +114,7 @@ function add_emp()
 
 function upload_emp()
 {
-    window.location = _base_url + 'index.php/Employee/new_upload_emp/';
+    window.location = _base_url + 'Employee/new_upload_emp/';
 }
 
 function edit_emp(id)
@@ -126,7 +128,7 @@ function edit_emp(id)
 
     //Ajax Load data from ajax
     $.ajax({
-        url : "<?php echo site_url('index.php/Employee/ajax_edit/')?>/" + id.replace('/', 'slash'),
+        url : "<?php echo site_url('Employee/ajax_edit/')?>/" + id.replace('/', 'slash'),
         type: "GET",
         dataType: "JSON",
         success: function(data)
@@ -136,6 +138,7 @@ function edit_emp(id)
             $('[name="empName"]').val(data.emp_name);
             $('[name="email"]').val(data.email);
             $('[name="position"]').val(data.position);
+            $('[name="subscribe"]').val(data.subscribe);
             $('[name="empId"]').attr("readOnly", true);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Employee'); // Set title to Bootstrap modal title
@@ -160,9 +163,9 @@ function save()
     var url;
 
     if(save_method == 'add') {
-        url = "<?php echo site_url('index.php/Employee/ajax_add')?>";
+        url = "<?php echo site_url('Employee/ajax_add')?>";
     } else {
-        url = "<?php echo site_url('index.php/Employee/ajax_update')?>";
+        url = "<?php echo site_url('Employee/ajax_update')?>";
     }
 
     // ajax adding data to database
@@ -206,7 +209,7 @@ function delete_emp(id, emp)
     {
         // ajax delete data to database
         $.ajax({
-            url : "<?php echo site_url('index.php/Employee/ajax_delete')?>/"+ id.replace('/', 'slash'),
+            url : "<?php echo site_url('Employee/ajax_delete')?>/"+ id.replace('/', 'slash'),
             type: "POST",
             dataType: "JSON",
             success: function(data)
@@ -262,6 +265,13 @@ function delete_emp(id, emp)
                             <label class="control-label col-md-3">Position</label>
                             <div class="col-md-9">
                                 <?php echo form_dropdown('position', $post_list, '', 'name="position" placeholder="Position" class="form-control" type="text"'); ?>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Subscribe</label>
+                            <div class="col-md-9">
+                                <?php echo form_dropdown('subscribe', $subscribe_list, '', 'name="subscribe" placeholder="Subscribe" class="form-control" type="text"'); ?>
                                 <span class="help-block"></span>
                             </div>
                         </div>
