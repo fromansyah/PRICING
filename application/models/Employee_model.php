@@ -6,8 +6,8 @@ class Employee_model extends CI_Model {
     public $date;
     private $_ci;
     var $table = 'employee';
-    var $column_order = array('emp_id', 'emp_name', 'email', 'position', null); //set column field database for datatable orderable
-    var $column_search = array('emp_id', 'emp_name', 'email', 'position'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+    var $column_order = array('emp_id', 'emp_name', 'email', 'position', 'subscribe', null); //set column field database for datatable orderable
+    var $column_search = array('emp_id', 'emp_name', 'email', 'position', 'subscribe'); //set column field database for datatable searchable just firstname , lastname , address are searchable
     var $order = array('emp_name' => 'ASC'); // default order 
     
     public function __construct(){
