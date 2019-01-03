@@ -21,6 +21,11 @@ class Employee extends CI_Controller {
         $data['emp_list'] = $this->Employee_model->getAllEmployeeList();
         $data['post_list'] = $this->Master_data_model->getMasterDataList('POSITION');
         
+        $subscribe = array();
+        $subscribe[0] ='No';
+        $subscribe[1] ='Yes';
+        $data['subscribe_list'] = $subscribe;
+        
         $data['content'] = $this->load->view('employee/list', $data, TRUE);
         $this->load->view($this->session->userdata("template"), $data);
     }
@@ -37,6 +42,11 @@ class Employee extends CI_Controller {
             if(count($post_result) > 0){
                 $position = $post_result[0]->name;
             }
+            
+            $subscribe = 'No';
+            if($emp->subscribe == 1){
+                $subscribe = 'Yes';
+            }
 
             $no++;
             $row = array();
@@ -44,10 +54,11 @@ class Employee extends CI_Controller {
             $row[] = $emp->emp_name;
             $row[] = $emp->email;
             $row[] = '['.$emp->position.'] '.$position;
+            $row[] = '['.$emp->subscribe.'] '.$subscribe;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_emp(\''.$emp->emp_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Employee\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_emp(\''.$emp->emp_id.'\''.',\''.$emp->emp_name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Employee\'></a>';
+            $button = '<a href=\'#\' onclick="edit_emp(\''.$emp->emp_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_edit.png\' title=\'Edit Employee\'></a>'.'&nbsp&nbsp&nbsp'.
+                      '<a href=\'#\' onclick="delete_emp(\''.$emp->emp_id.'\''.',\''.$emp->emp_name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_delete.png\' title=\'Delete Employee\'></a>';
             
             $row[] = $button;
 
@@ -89,6 +100,7 @@ class Employee extends CI_Controller {
                     'emp_name' => $this->input->post('empName'),
                     'email' => $this->input->post('email'),
                     'position' => $this->input->post('position'),
+                    'subscribe' => $this->input->post('subscribe'),
                     'created_by' => $this->session->userdata("username"),
                     'created_date' => date('Y-m-d H:i:s', strtotime('now')),
                     'last_update_by' => $this->session->userdata("username"),
@@ -119,6 +131,7 @@ class Employee extends CI_Controller {
                     'emp_name' => $this->input->post('empName'),
                     'email' => $this->input->post('email'),
                     'position' => $this->input->post('position'),
+                    'subscribe' => $this->input->post('subscribe'),
                     'last_update_by' => $this->session->userdata("username"),
                     'last_update_date' => date('Y-m-d H:i:s', strtotime('now'))
                 );
@@ -181,6 +194,7 @@ class Employee extends CI_Controller {
                 $email = $field[2];
                 $position = $field[3];
                 $note = $field[4];
+                $subscribe = $field[5];
 
                 $data_employee = array(
                         'emp_id' => $emp_id,
@@ -188,6 +202,7 @@ class Employee extends CI_Controller {
                         'email' => $email,
                         'position' => $position,
                         'note' => $note,
+                        'subscribe' => $subscribe,
                         'created_by' => $this->session->userdata("username"),
                         'created_date' => date('Y-m-d H:i:s', strtotime('now')),
                         'last_update_by' => $this->session->userdata("username"),
