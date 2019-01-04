@@ -17,7 +17,7 @@
         </span>
         <br/>
         <button class="btn btn-warning" onclick="back_to_periode()"><i class="glyphicon glyphicon-backward"></i> Back</button>
-        <button class="btn btn-success" onclick="add_price()"><i class="glyphicon glyphicon-plus"></i> Add Detail</button>
+        <button class="btn btn-success" onclick="add_detail()"><i class="glyphicon glyphicon-plus"></i> Add Detail</button>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
