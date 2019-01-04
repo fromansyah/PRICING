@@ -108,7 +108,7 @@ function add_periode()
 }
 
 function view_detail(id){
-    window.location = _base_url + 'index.php/Period_detail/lists/' + id.replace('/', 'slash');
+    window.location = _base_url + 'index.php/Periode_detail/lists/' + id.replace('/', 'slash');
 }
 
 function edit_periode(id)
