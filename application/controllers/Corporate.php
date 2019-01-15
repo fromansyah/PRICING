@@ -11,16 +11,25 @@ class Corporate extends CI_Controller {
         $this->load->helper('file');
         $this->load->helper(array('form', 'url'));
         $this->load->model('Corporate_model', 'Corporate_model');
+        $this->load->model('Users_model', 'Users_model');
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Corporate');
         
-        $data['page_name'] = 'Corporate Management';
-        $data['corporate_list'] = $this->Corporate_model->getCorporateList();
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $data['content'] = $this->load->view('corporate/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+            $data['page_name'] = 'Corporate Management';
+            $data['corporate_list'] = $this->Corporate_model->getCorporateList();
+            
+            $data['content'] = $this->load->view('corporate/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
  
     public function ajax_list()
