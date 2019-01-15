@@ -15,7 +15,9 @@
         <font size="5">User Management</font>
         <br/>
         <br/>
+        <?if($this->session->userdata("role") == 1):?>
         <button class="btn btn-success" onclick="add_user()"><i class="glyphicon glyphicon-plus"></i> Add User</button>
+        <?endif;?>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
