@@ -17,7 +17,9 @@
         </span>
         <br/>
         <button class="btn btn-warning" onclick="back_to_mdt()"><i class="glyphicon glyphicon-backward"></i> Back</button>
+        <?if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3):?>
         <button class="btn btn-success" onclick="add_md()"><i class="glyphicon glyphicon-plus"></i> Add Master Data</button>
+        <?endif;?>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
