@@ -37,6 +37,7 @@ class Employee extends CI_Controller {
         	$data["content"] = $this->load->view('error',$data,true);
             $this->load->view("blank", $data);
         }
+        
     }
  
     public function ajax_list()
@@ -175,9 +176,18 @@ class Employee extends CI_Controller {
     }
     
     public function new_upload_emp(){
-        $data['page_title'] = 'Upload Employee';
-        $data['content'] = $this->load->view('employee/new_upload_emp', $data, TRUE);
-        $this->load->view('form_template', $data);
+        $check = $this->Users_model->getRoleMenu('index.php/Employee');
+        
+        if(count($check) > 0){
+            $data['page_title'] = 'Upload Employee';
+            $data['content'] = $this->load->view('employee/new_upload_emp', $data, TRUE);
+            $this->load->view('form_template', $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
+        
     }
     
     public function ajax_upload()
