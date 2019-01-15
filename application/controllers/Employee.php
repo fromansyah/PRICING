@@ -12,22 +12,31 @@ class Employee extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->model('Employee_model', 'Employee_model');
         $this->load->model('Master_data_model', 'Master_data_model');
+        $this->load->model('Users_model', 'Users_model');
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Employee');
         
-        $data['page_name'] = 'Employee Management';
-        $data['emp_list'] = $this->Employee_model->getAllEmployeeList();
-        $data['post_list'] = $this->Master_data_model->getMasterDataList('POSITION');
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $subscribe = array();
-        $subscribe[0] ='No';
-        $subscribe[1] ='Yes';
-        $data['subscribe_list'] = $subscribe;
-        
-        $data['content'] = $this->load->view('employee/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+            $data['page_name'] = 'Employee Management';
+            $data['emp_list'] = $this->Employee_model->getAllEmployeeList();
+            $data['post_list'] = $this->Master_data_model->getMasterDataList('POSITION');
+            
+            $subscribe = array();
+            $subscribe[0] ='No';
+            $subscribe[1] ='Yes';
+            $data['subscribe_list'] = $subscribe;
+            
+            $data['content'] = $this->load->view('employee/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
  
     public function ajax_list()
