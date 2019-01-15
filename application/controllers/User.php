@@ -11,16 +11,26 @@ class User extends CI_Controller {
         $this->load->library('Dynamic_menu');
         $this->load->model('User_model', 'User_model');
         $this->load->model('Role_model', 'Role_model');
+        $this->load->model('Users_model', 'Users_model'); 
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/User');
         
-        $data['page_name'] = 'User Management';
-        $data['role_list'] = $this->Role_model->getRoleList();
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $data['content'] = $this->load->view('user/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+            $data['page_name'] = 'User Management';
+            $data['role_list'] = $this->Role_model->getRoleList();
+            
+            $data['content'] = $this->load->view('user/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
+        
     }
  
     public function ajax_list()
