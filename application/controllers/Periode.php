@@ -44,7 +44,7 @@ class Periode extends CI_Controller {
  
             //add html for action
 	    $button = '';
-            if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3){
+            if($this->session->userdata("role") == 1){
 		    $button = '<a href=\'#\' onclick="edit_periode(\''.$periode->periode_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Periode\'></a>'.'&nbsp&nbsp&nbsp'.
 			      '<a href=\'#\' onclick="view_detail(\''.$periode->periode_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/view-details.png\' title=\'View Detail\'></a>'.'&nbsp&nbsp&nbsp'.
 			      '<a href=\'#\' onclick="delete_periode(\''.$periode->periode_id.'\''.',\''.$periode->periode_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Periode\'></a>';
