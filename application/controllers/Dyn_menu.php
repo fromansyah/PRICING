@@ -9,16 +9,25 @@ class Dyn_menu extends CI_Controller {
         $this->support_lib->check_login();
         $this->load->library('Dynamic_menu');
         $this->load->model('Dyn_menu_model', 'Dyn_menu_model');
+        $this->load->model('Users_model', 'Users_model'); 
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Dyn_menu');
         
-        $data['page_name'] = 'Menu Management';
-        $data['menu_list'] = $this->Dyn_menu_model->getMenuList();
-        
-        $data['content'] = $this->load->view('dyn_menu/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+        if(count($check) > 0){
+            $this->load->helper('url');
+            
+            $data['page_name'] = 'Menu Management';
+            $data['menu_list'] = $this->Dyn_menu_model->getMenuList();
+            
+            $data['content'] = $this->load->view('dyn_menu/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
  
     public function ajax_list()
