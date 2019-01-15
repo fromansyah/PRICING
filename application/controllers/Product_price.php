@@ -83,9 +83,11 @@ class Product_price extends CI_Controller {
             $row[] = '<div align="right">'.number_format($product->catalogue_price, 2).'</div>';
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_price(\''.$product->price_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Price\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_price(\''.$product->price_id.'\''.',\''.$product->catalogue_price.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Price\'></a>';
-            
+	    $button = '';
+            if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3){
+		    $button = '<a href=\'#\' onclick="edit_price(\''.$product->price_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Price\'></a>'.'&nbsp&nbsp&nbsp'.
+			      '<a href=\'#\' onclick="delete_price(\''.$product->price_id.'\''.',\''.$product->catalogue_price.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Price\'></a>';
+	    }
             $row[] = $button;
 
             $data[] = $row;
