@@ -16,9 +16,11 @@
             &nbsp;<font size="5" style="font-weight: bold; color: #737373">Customer Management</font>
         </span>
         <br/>
+        <?if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3):?>
         <button class="btn btn-success" onclick="add_customer()"><i class="glyphicon glyphicon-plus"></i> Add Customer</button>
         <button class="btn btn-success" onclick="upload_customer()"><i class="glyphicon glyphicon-plus"></i> Upload Customer</button>
         <button class="btn btn-success" onclick="upload_site()"><i class="glyphicon glyphicon-plus"></i> Upload Site</button>
+        <?endif;?>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
