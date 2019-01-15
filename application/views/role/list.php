@@ -15,7 +15,7 @@
         <font size="5">Role Management</font>
         <br/>
         <br/>
-        <?if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3):?>
+        <?if($this->session->userdata("role") == 1):?>
         <button class="btn btn-success" onclick="add_role()"><i class="glyphicon glyphicon-plus"></i> Add Role</button>
         <?endif;?>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
