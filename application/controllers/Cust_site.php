@@ -30,6 +30,7 @@ class Cust_site extends CI_Controller {
         	$data["content"] = $this->load->view('error',$data,true);
             $this->load->view("blank", $data);
         }
+        
     }
     
     
@@ -170,9 +171,18 @@ class Cust_site extends CI_Controller {
     }
     
     public function new_upload_site(){
-        $data['page_title'] = 'Upload Customer Site';
-        $data['content'] = $this->load->view('cust_site/new_upload_site', $data, TRUE);
-        $this->load->view('form_template', $data);
+        $check = $this->Users_model->getRoleMenu('index.php/Customer');
+        
+        if(count($check) > 0){
+            $data['page_title'] = 'Upload Customer Site';
+            $data['content'] = $this->load->view('cust_site/new_upload_site', $data, TRUE);
+            $this->load->view('form_template', $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
+        
     }
     
     public function ajax_upload()
