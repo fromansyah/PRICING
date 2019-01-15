@@ -30,6 +30,7 @@ class Corporate extends CI_Controller {
         	$data["content"] = $this->load->view('error',$data,true);
             $this->load->view("blank", $data);
         }
+        
     }
  
     public function ajax_list()
@@ -141,9 +142,17 @@ class Corporate extends CI_Controller {
     }
     
     public function new_upload_corporate(){
-        $data['page_title'] = 'Upload Corporate';
-        $data['content'] = $this->load->view('corporate/new_upload_corporate', $data, TRUE);
-        $this->load->view('form_template', $data);
+        $check = $this->Users_model->getRoleMenu('index.php/Corporate');
+        
+        if(count($check) > 0){
+            $data['page_title'] = 'Upload Corporate';
+            $data['content'] = $this->load->view('corporate/new_upload_corporate', $data, TRUE);
+            $this->load->view('form_template', $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
     
     function getmenuList(){
