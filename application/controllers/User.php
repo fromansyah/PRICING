@@ -49,10 +49,12 @@ class User extends CI_Controller {
             $row[] = '['.$user->role.'] '.$role_name;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_user(\''.$user->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_user(\''.$user->id.'\''.',\''.$user->username.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="reset_user(\''.$user->id.'\''.',\''.$user->username.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/reset.png\'></a>';
-            
+	    $button = '';
+	    if($this->session->userdata("role") == 1){
+		    $button = '<a href=\'#\' onclick="edit_user(\''.$user->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\'></a>'.'&nbsp&nbsp&nbsp'.
+			      '<a href=\'#\' onclick="delete_user(\''.$user->id.'\''.',\''.$user->username.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\'></a>'.'&nbsp&nbsp&nbsp'.
+			      '<a href=\'#\' onclick="reset_user(\''.$user->id.'\''.',\''.$user->username.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/reset.png\'></a>';
+	    }
             $row[] = $button;
 
             $data[] = $row;
