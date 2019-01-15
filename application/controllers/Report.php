@@ -9,10 +9,20 @@ class Report extends CI_Controller {
         $this->support_lib->check_login();
         $this->load->library('Dynamic_menu');
         $this->load->model('Report_model', 'Report_model');
+        $this->load->model('Users_model', 'Users_model'); 
     }
     
     public function index(){
-        $this->lists();
+        $check = $this->Users_model->getRoleMenu('index.php/Report');
+        
+        if(count($check) > 0){
+            $this->lists();
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
+        
     }
     
     function lists() {
@@ -28,7 +38,7 @@ class Report extends CI_Controller {
         $base_url = base_url();
         $base_url_explode = explode('/', $base_url);
         //$host = $base_url_explode[0].'//'.$base_url_explode[2];
-	$host = 'http://pricing-tomcat.azurewebsites.net';
+	    $host = 'http://ecolab-pricing-tomcat.azurewebsites.net';
         $list = $this->Report_model->get_datatables();
         $data = array();
         $no = $_POST['start'];
