@@ -88,9 +88,11 @@ class Periode_detail extends CI_Controller {
             $row[] = $product->month;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_detail(\''.$product->periode_detail_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Price\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_detail(\''.$product->periode_detail_id.'\''.',\''.$product->periode_detail_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Price\'></a>';
-            
+	    $button = '';
+            if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3){
+		    $button = '<a href=\'#\' onclick="edit_detail(\''.$product->periode_detail_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Price\'></a>'.'&nbsp&nbsp&nbsp'.
+			      '<a href=\'#\' onclick="delete_detail(\''.$product->periode_detail_id.'\''.',\''.$product->periode_detail_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Price\'></a>';
+	    }
             $row[] = $button;
 
             $data[] = $row;
