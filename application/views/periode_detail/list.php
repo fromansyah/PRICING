@@ -16,7 +16,7 @@
             &nbsp;<font size="5" style="font-weight: bold; color: #737373">Period Detail : <?echo $start_date?> to <?echo $end_date?></font>
         </span>
         <br/>
-        <?if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3):?>
+        <?if($this->session->userdata("role") == 1):?>
         <button class="btn btn-warning" onclick="back_to_periode()"><i class="glyphicon glyphicon-backward"></i> Back</button>
         <button class="btn btn-success" onclick="add_detail()"><i class="glyphicon glyphicon-plus"></i> Add Detail</button>
         <?endif;?>
