@@ -9,15 +9,24 @@ class Periode extends CI_Controller {
         $this->support_lib->check_login();
         $this->load->library('Dynamic_menu');
         $this->load->model('Periode_model', 'Periode_model');
+        $this->load->model('Users_model', 'Users_model'); 
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Periode');
         
-        $data['page_name'] = 'Periode Management';
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $data['content'] = $this->load->view('periode/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+            $data['page_name'] = 'Periode Management';
+            
+            $data['content'] = $this->load->view('periode/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
  
     public function ajax_list()
