@@ -85,10 +85,12 @@ class Agreement extends CI_Controller {
             $row[] = '<div align="right">'.number_format($agreement->price, 2).'</div>';
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_agreement(\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Agreement\'></a>'.'&nbsp&nbsp&nbsp'.
-//                      '<a href=\'#\' onclick="view_price(\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/view-details.png\' title=\'View Prices\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_agreement(\''.$agreement->agreement_id.'\''.',\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Agreement\'></a>';
-            
+	    $button = '';
+            if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3){
+		    $button = '<a href=\'#\' onclick="edit_agreement(\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Agreement\'></a>'.'&nbsp&nbsp&nbsp'.
+	//                      '<a href=\'#\' onclick="view_price(\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/view-details.png\' title=\'View Prices\'></a>'.'&nbsp&nbsp&nbsp'.
+			      '<a href=\'#\' onclick="delete_agreement(\''.$agreement->agreement_id.'\''.',\''.$agreement->agreement_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Agreement\'></a>';
+	    }
             $row[] = $button;
 
             $data[] = $row;
