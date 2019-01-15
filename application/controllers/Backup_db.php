@@ -1,6 +1,6 @@
 <?php
 
-class backup_db extends CI_Controller {
+class Backup_db extends CI_Controller {
 
     public function __construct()
     {
@@ -8,13 +8,22 @@ class backup_db extends CI_Controller {
         $this->support_lib->check_login();
         $this->load->library('Dynamic_menu');
         $this->load->helper('file');
+        $this->load->model('Users_model', 'Users_model'); 
     }
     
     function index()
     {
-        $data['title'] = 'Backup Database';
-        $data['content'] = $this->load->view('backup_db/backup_form', $data, TRUE);
-        $this->load->view('form_template', $data);
+        $check = $this->Users_model->getRoleMenu('index.php/Backup_db');
+        
+        if(count($check) > 0){
+            $data['title'] = 'Backup Database';
+            $data['content'] = $this->load->view('backup_db/backup_form', $data, TRUE);
+            $this->load->view('form_template', $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
     
     function do_backup(){
