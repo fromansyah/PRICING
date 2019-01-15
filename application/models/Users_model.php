@@ -178,5 +178,16 @@ class Users_model extends CI_Model {
 
         return $result->result();
     }
+    
+    function getRoleMenu($url){
+        $query = $this->db->query("select role.id, role.role, role_menu.menu_id, dyn_menu.url
+                                   from role, role_menu, dyn_menu
+                                   where role.id = 1
+                                         and role.id = role_menu.role_id
+                                         and role_menu.menu_id = dyn_menu.id
+                                         and dyn_menu.url = '$url'");
+                                         
+        return $query->result();
+    }
 }
 ?>
