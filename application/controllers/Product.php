@@ -131,15 +131,31 @@ class Product extends CI_Controller {
     }
     
     public function upload_product(){
-        $data['page_title'] = 'Upload Product';
-        $data['content'] = $this->load->view('product/upload_product', $data, TRUE);
-        $this->load->view('form_template', $data);
+        $check = $this->Users_model->getRoleMenu('index.php/Product');
+        
+        if(count($check) > 0){
+            $data['page_title'] = 'Upload Product';
+            $data['content'] = $this->load->view('product/upload_product', $data, TRUE);
+            $this->load->view('form_template', $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
     
     public function new_upload_product(){
-        $data['page_title'] = 'Upload Product';
-        $data['content'] = $this->load->view('product/new_upload_product', $data, TRUE);
-        $this->load->view('form_template', $data);
+        $check = $this->Users_model->getRoleMenu('index.php/Product');
+        
+        if(count($check) > 0){
+            $data['page_title'] = 'Upload Product';
+            $data['content'] = $this->load->view('product/new_upload_product', $data, TRUE);
+            $this->load->view('form_template', $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
     
     function getmenuList(){
