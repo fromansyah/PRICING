@@ -12,6 +12,7 @@ class Product_price extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->model('Product_price_model', 'Product_price_model');
         $this->load->model('Product_model', 'Product_model');
+        $this->load->model('Users_model', 'Users_model');
     }
     
     public function index(){
@@ -27,33 +28,41 @@ class Product_price extends CI_Controller {
     
     
     function lists($product_no) {
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Product');
         
-        $data['product_no'] = $product_no;
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $new_product_no = str_replace('slash', '/', $product_no);
-        
-        $result = $this->Product_model->getProductById($new_product_no)->result();
-        $data['product_name'] = $result[0]->product_name;
-        
-        $periode_list = array();
-        $periode_list[1] = 1;
-        $periode_list[2] = 2;
-        $periode_list[3] = 3;
-        $periode_list[4] = 4;
-        $periode_list[5] = 5;
-        $periode_list[6] = 6;
-        $periode_list[7] = 7;
-        $periode_list[8] = 8;
-        $periode_list[9] = 9;
-        $periode_list[10] = 10;
-        $periode_list[11] = 11;
-        $periode_list[12] = 12;
-        $data['periode_list'] = $periode_list;
-        
-        $data['page_title'] = 'Product Price';
-        $data['content'] = $this->load->view('product_price/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+            $data['product_no'] = $product_no;
+            
+            $new_product_no = str_replace('slash', '/', $product_no);
+            
+            $result = $this->Product_model->getProductById($new_product_no)->result();
+            $data['product_name'] = $result[0]->product_name;
+            
+            $periode_list = array();
+            $periode_list[1] = 1;
+            $periode_list[2] = 2;
+            $periode_list[3] = 3;
+            $periode_list[4] = 4;
+            $periode_list[5] = 5;
+            $periode_list[6] = 6;
+            $periode_list[7] = 7;
+            $periode_list[8] = 8;
+            $periode_list[9] = 9;
+            $periode_list[10] = 10;
+            $periode_list[11] = 11;
+            $periode_list[12] = 12;
+            $data['periode_list'] = $periode_list;
+            
+            $data['page_title'] = 'Product Price';
+            $data['content'] = $this->load->view('product_price/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
  
     public function ajax_list($product_no)
