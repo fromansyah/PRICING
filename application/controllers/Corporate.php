@@ -47,10 +47,12 @@ class Corporate extends CI_Controller {
             $row[] = $corporate->note;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_corporate(\''.$corporate->corp_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Corporate\'></a>'.'&nbsp&nbsp&nbsp'.
-//                      '<a href=\'#\' onclick="view_price(\''.$corporate->corp_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/view-details.png\' title=\'View Prices\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_corporate(\''.$corporate->corp_id.'\''.',\''.$corporate->corp_name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Corporate\'></a>';
-            
+	    $button = '';
+            if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3){
+		    $button = '<a href=\'#\' onclick="edit_corporate(\''.$corporate->corp_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Corporate\'></a>'.'&nbsp&nbsp&nbsp'.
+	//                      '<a href=\'#\' onclick="view_price(\''.$corporate->corp_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/view-details.png\' title=\'View Prices\'></a>'.'&nbsp&nbsp&nbsp'.
+			      '<a href=\'#\' onclick="delete_corporate(\''.$corporate->corp_id.'\''.',\''.$corporate->corp_name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Corporate\'></a>';
+	    }
             $row[] = $button;
 
             $data[] = $row;
