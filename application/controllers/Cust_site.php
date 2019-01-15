@@ -12,15 +12,24 @@ class Cust_site extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->model('Cust_site_model', 'Cust_site_model');
         $this->load->model('Customer_model', 'Customer_model');
+        $this->load->model('Users_model', 'Users_model');
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Customer');
         
-        $data['page_name'] = 'Customer Price Management';
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $data['content'] = $this->load->view('cust_site/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+            $data['page_name'] = 'Customer Site Management';
+            
+            $data['content'] = $this->load->view('cust_site/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
     
     
