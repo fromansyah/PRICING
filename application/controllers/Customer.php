@@ -53,10 +53,12 @@ class Customer extends CI_Controller {
             $row[] = $customer->bu;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_customer(\''.$customer->cust_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Customer\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="view_sites(\''.$customer->cust_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/locations.png\' title=\'View Sites\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_customer(\''.$customer->cust_id.'\''.',\''.$customer->cust_name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Customer\'></a>';
-            
+	    $button = '';
+            if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3){
+		    $button = '<a href=\'#\' onclick="edit_customer(\''.$customer->cust_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Customer\'></a>'.'&nbsp&nbsp&nbsp'.
+			      '<a href=\'#\' onclick="view_sites(\''.$customer->cust_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/locations.png\' title=\'View Sites\'></a>'.'&nbsp&nbsp&nbsp'.
+			      '<a href=\'#\' onclick="delete_customer(\''.$customer->cust_id.'\''.',\''.$customer->cust_name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Customer\'></a>';
+	    }
             $row[] = $button;
 
             $data[] = $row;
