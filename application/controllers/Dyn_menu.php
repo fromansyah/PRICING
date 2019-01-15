@@ -53,7 +53,7 @@ class Dyn_menu extends CI_Controller {
  
             //add html for action
 	    $button = '';
-            if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3){
+            if($this->session->userdata("role") == 1){
 		    $button = '<a href=\'#\' onclick="edit_menu(\''.$menu->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\'></a>'.'&nbsp&nbsp&nbsp'.
 			      '<a href=\'#\' onclick="delete_menu(\''.$menu->id.'\''.',\''.$menu->title.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\'></a>';
 	    }
