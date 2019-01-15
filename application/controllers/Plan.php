@@ -16,33 +16,43 @@ class Plan extends CI_Controller {
         $this->load->model('Cust_site_model', 'Cust_site_model');
         $this->load->model('Employee_model', 'Employee_model');
         $this->load->model('Product_price_model', 'Product_price_model');
+        $this->load->model('Users_model', 'Users_model');
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Plan');
         
-        $data['page_name'] = 'Plan Management';
-        $data['product_list'] = $this->Product_model->getProductList();
-        $data['cust_list'] = $this->Customer_model->getCustomerList();
-        $data['site_list'] = array();
-        $data['sp_list'] = $this->Employee_model->getEmployeeListByPosition('SP');
-        $periode_list = array();
-        $periode_list[1] = 1;
-        $periode_list[2] = 2;
-        $periode_list[3] = 3;
-        $periode_list[4] = 4;
-        $periode_list[5] = 5;
-        $periode_list[6] = 6;
-        $periode_list[7] = 7;
-        $periode_list[8] = 8;
-        $periode_list[9] = 9;
-        $periode_list[10] = 10;
-        $periode_list[11] = 11;
-        $periode_list[12] = 12;
-        $data['periode_list'] = $periode_list;
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $data['content'] = $this->load->view('plan/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+            $data['page_name'] = 'Plan Management';
+            $data['product_list'] = $this->Product_model->getProductList();
+            $data['cust_list'] = $this->Customer_model->getCustomerList();
+            $data['site_list'] = array();
+            $data['sp_list'] = $this->Employee_model->getEmployeeListByPosition('SP');
+            $periode_list = array();
+            $periode_list[1] = 1;
+            $periode_list[2] = 2;
+            $periode_list[3] = 3;
+            $periode_list[4] = 4;
+            $periode_list[5] = 5;
+            $periode_list[6] = 6;
+            $periode_list[7] = 7;
+            $periode_list[8] = 8;
+            $periode_list[9] = 9;
+            $periode_list[10] = 10;
+            $periode_list[11] = 11;
+            $periode_list[12] = 12;
+            $data['periode_list'] = $periode_list;
+            
+            $data['content'] = $this->load->view('plan/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
+        
     }
  
     public function ajax_list()
@@ -280,9 +290,18 @@ class Plan extends CI_Controller {
     }
     
     public function new_upload_plan(){
-        $data['page_title'] = 'Upload Plan';
-        $data['content'] = $this->load->view('plan/new_upload_plan', $data, TRUE);
-        $this->load->view('form_template', $data);
+        $check = $this->Users_model->getRoleMenu('index.php/Plan');
+        
+        if(count($check) > 0){
+            $data['page_title'] = 'Upload Plan';
+            $data['content'] = $this->load->view('plan/new_upload_plan', $data, TRUE);
+            $this->load->view('form_template', $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
+        
     }
     
     public function ajax_upload()
