@@ -44,7 +44,7 @@ class Role_menu extends CI_Controller {
             $menu = $this->Dyn_menu_model->getMenuById($role_menu->menu_id)->result();
 		
             $button = '';
-            if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3){
+            if($this->session->userdata("role") == 1){
 		    $button = '<a href=\'#\' onclick="edit_role_menu(\''.$role_menu->role_id.'\''.',\''.$role_menu->menu_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\'></a>'.'&nbsp&nbsp&nbsp'.
 			      '<a href=\'#\' onclick="delete_role_menu(\''.$role_menu->role_id.'\''.',\''.$role_menu->menu_id.'\''.',\''.$menu[0]->title.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\'></a>';
 	    }
