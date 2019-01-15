@@ -16,8 +16,10 @@
             &nbsp;<font size="5" style="font-weight: bold; color: #737373">Agreement Management</font>
         </span>
         <br/>
+        <?if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3):?>
         <button class="btn btn-success" onclick="add_agreement()"><i class="glyphicon glyphicon-plus"></i> Add Agreement</button>
         <button class="btn btn-success" onclick="upload_agreement()"><i class="glyphicon glyphicon-plus"></i> Upload Agreement</button>
+        <?endif;?>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
