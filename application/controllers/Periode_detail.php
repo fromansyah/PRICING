@@ -10,49 +10,67 @@ class Periode_detail extends CI_Controller {
         $this->load->library('Dynamic_menu');
         $this->load->model('Periode_detail_model', 'Periode_detail_model');
         $this->load->model('Periode_model', 'Periode_model');
+        $this->load->model('Users_model', 'Users_model'); 
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Periode_detail');
         
-        $data['page_name'] = 'Periode Detail Management';
-        $data['product_list'] = $this->Periode_detail_model->getPeriodeDetailList();
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $data['content'] = $this->load->view('periode_detail/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+            $data['page_name'] = 'Periode Detail Management';
+            $data['product_list'] = $this->Periode_detail_model->getPeriodeDetailList();
+            
+            $data['content'] = $this->load->view('periode_detail/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
     
     
     
     function lists($periode_id) {
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Periode');
         
-        $data['periode_id'] = $periode_id;
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $new_periode_id = str_replace('slash', '/', $periode_id);
+            $data['periode_id'] = $periode_id;
+            
+            $new_periode_id = str_replace('slash', '/', $periode_id);
+            
+            $result = $this->Periode_model->getPeriodeById($new_periode_id)->result();
+            $data['start_date'] = $result[0]->start_date;
+            $data['end_date'] = $result[0]->end_date;
+            
+            $periode_list = array();
+            $periode_list[1] = 1;
+            $periode_list[2] = 2;
+            $periode_list[3] = 3;
+            $periode_list[4] = 4;
+            $periode_list[5] = 5;
+            $periode_list[6] = 6;
+            $periode_list[7] = 7;
+            $periode_list[8] = 8;
+            $periode_list[9] = 9;
+            $periode_list[10] = 10;
+            $periode_list[11] = 11;
+            $periode_list[12] = 12;
+            $data['periode_list'] = $periode_list;
+            
+            $data['page_title'] = 'Periode Detail';
+            $data['content'] = $this->load->view('periode_detail/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
         
-        $result = $this->Periode_model->getPeriodeById($new_periode_id)->result();
-        $data['start_date'] = $result[0]->start_date;
-        $data['end_date'] = $result[0]->end_date;
-        
-        $periode_list = array();
-        $periode_list[1] = 1;
-        $periode_list[2] = 2;
-        $periode_list[3] = 3;
-        $periode_list[4] = 4;
-        $periode_list[5] = 5;
-        $periode_list[6] = 6;
-        $periode_list[7] = 7;
-        $periode_list[8] = 8;
-        $periode_list[9] = 9;
-        $periode_list[10] = 10;
-        $periode_list[11] = 11;
-        $periode_list[12] = 12;
-        $data['periode_list'] = $periode_list;
-        
-        $data['page_title'] = 'Periode Detail';
-        $data['content'] = $this->load->view('periode_detail/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
     }
  
     public function ajax_list($periode_id)
