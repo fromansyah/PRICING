@@ -49,7 +49,7 @@ class Role extends CI_Controller {
  
             //add html for action
 	    $button = '';
-            if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3){
+            if($this->session->userdata("role") == 1){
 		    $button = '<a href=\'#\' onclick="edit_role(\''.$role->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Role\'></a>'.'&nbsp&nbsp&nbsp'.
 			      '<a href=\'#\' onclick="view_role_menu(\''.$role->id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/view-details.png\' title=\'View Menu\'></a>'.'&nbsp&nbsp&nbsp'.
 			      '<a href=\'#\' onclick="delete_role(\''.$role->id.'\''.',\''.$role->role.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Role\'></a>'.'&nbsp&nbsp&nbsp';
