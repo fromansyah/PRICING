@@ -16,7 +16,7 @@
             &nbsp;<font size="5" style="font-weight: bold; color: #737373">Master Data Type Management</font>
         </span>
         <br/>
-        <?if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3):?>
+        <?if($this->session->userdata("role") == 1):?>
         <button class="btn btn-success" onclick="add_mdt()"><i class="glyphicon glyphicon-plus"></i> Add Master Data Type</button>
         <?endif;?>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
