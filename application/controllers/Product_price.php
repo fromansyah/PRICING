@@ -202,10 +202,21 @@ class Product_price extends CI_Controller {
         $this->load->view('form_template', $data);
     }
     
+    
+    
     public function new_upload_price(){
-        $data['page_title'] = 'Upload Product Price';
-        $data['content'] = $this->load->view('product_price/new_upload_price', $data, TRUE);
-        $this->load->view('form_template', $data);
+        $check = $this->Users_model->getRoleMenu('index.php/Product');
+        
+        if(count($check) > 0){
+            $data['page_title'] = 'Upload Product Price';
+            $data['content'] = $this->load->view('product_price/new_upload_price', $data, TRUE);
+            $this->load->view('form_template', $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
+        
     }
     
     function getmenuList(){
