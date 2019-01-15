@@ -11,10 +11,19 @@ class Role extends CI_Controller {
         $this->load->library('flexigrid');
         $this->load->library('Dynamic_menu');
         $this->load->model('Role_model', 'Role_model');
+        $this->load->model('Users_model', 'Users_model'); 
     }
     
     public function index(){
-        $this->lists();
+        $check = $this->Users_model->getRoleMenu('index.php/Role');
+        
+        if(count($check) > 0){
+            $this->lists();
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
     
     function lists() {
