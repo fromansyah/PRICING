@@ -9,15 +9,24 @@ class Master_data_type extends CI_Controller {
         $this->support_lib->check_login();
         $this->load->library('Dynamic_menu');
         $this->load->model('Master_data_type_model', 'Master_data_type_model');
+        $this->load->model('Users_model', 'Users_model'); 
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Master_data_type');
         
-        $data['page_name'] = 'Master Data Type Management';
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $data['content'] = $this->load->view('master_data_type/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+            $data['page_name'] = 'Master Data Type Management';
+            
+            $data['content'] = $this->load->view('master_data_type/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
  
     public function ajax_list()
