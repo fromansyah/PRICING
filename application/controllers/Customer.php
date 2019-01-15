@@ -13,18 +13,27 @@ class Customer extends CI_Controller {
         $this->load->model('Customer_model', 'Customer_model');
         $this->load->model('Corporate_model', 'Corporate_model');
         $this->load->model('Master_data_model', 'Master_data_model');
+        $this->load->model('Users_model', 'Users_model');
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Customer');
         
-        $data['page_name'] = 'Customer Management';
-        $data['corporate_list'] = $this->Corporate_model->getCorporateList();
-        $data['cust_type_list'] = $this->Master_data_model->getMasterDataList('CUST_TYPE');
-        $data['bu_list'] = $this->Master_data_model->getMasterDataList('BU_TYPE');
+        if(count($check) > 0){
+            $this->load->helper('url');
         
-        $data['content'] = $this->load->view('customer/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+            $data['page_name'] = 'Customer Management';
+            $data['corporate_list'] = $this->Corporate_model->getCorporateList();
+            $data['cust_type_list'] = $this->Master_data_model->getMasterDataList('CUST_TYPE');
+            $data['bu_list'] = $this->Master_data_model->getMasterDataList('BU_TYPE');
+            
+            $data['content'] = $this->load->view('customer/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
  
     public function ajax_list()
