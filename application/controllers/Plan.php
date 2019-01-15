@@ -74,10 +74,12 @@ class Plan extends CI_Controller {
             $row[] = $plan->sp_id;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_plan(\''.$plan->plan_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Plan\'></a>'.'&nbsp&nbsp&nbsp'.
-//                      '<a href=\'#\' onclick="view_price(\''.$plan->plan_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/view-details.png\' title=\'View Prices\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_plan(\''.$plan->plan_id.'\''.',\''.$plan->plan_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Plan\'></a>';
-            
+	    $button = '';
+            if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3){
+		    $button = '<a href=\'#\' onclick="edit_plan(\''.$plan->plan_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Plan\'></a>'.'&nbsp&nbsp&nbsp'.
+	//                      '<a href=\'#\' onclick="view_price(\''.$plan->plan_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/view-details.png\' title=\'View Prices\'></a>'.'&nbsp&nbsp&nbsp'.
+			      '<a href=\'#\' onclick="delete_plan(\''.$plan->plan_id.'\''.',\''.$plan->plan_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Plan\'></a>';
+	    }
             $row[] = $button;
 
             $data[] = $row;
