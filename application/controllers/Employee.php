@@ -57,8 +57,8 @@ class Employee extends CI_Controller {
             $row[] = '['.$emp->subscribe.'] '.$subscribe;
  
             //add html for action
-            $button = '<a href=\'#\' onclick="edit_emp(\''.$emp->emp_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_edit.png\' title=\'Edit Employee\'></a>'.'&nbsp&nbsp&nbsp'.
-                      '<a href=\'#\' onclick="delete_emp(\''.$emp->emp_id.'\''.',\''.$emp->emp_name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'images/file_delete.png\' title=\'Delete Employee\'></a>';
+            $button = '<a href=\'#\' onclick="edit_emp(\''.$emp->emp_id.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_edit.png\' title=\'Edit Employee\'></a>'.'&nbsp&nbsp&nbsp'.
+                      '<a href=\'#\' onclick="delete_emp(\''.$emp->emp_id.'\''.',\''.$emp->emp_name.'\')"><img border=\'0\' src=\''.$this->config->item('base_url').'/images/file_delete.png\' title=\'Delete Employee\'></a>';
             
             $row[] = $button;
 
