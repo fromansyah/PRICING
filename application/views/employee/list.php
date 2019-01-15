@@ -16,7 +16,7 @@
             &nbsp;<font size="5" style="font-weight: bold; color: #737373">Employee Management</font>
         </span>
         <br/>
-        <?if($this->session->userdata("role") == 1 || $this->session->userdata("role") == 3):?>
+        <?if($this->session->userdata("role") == 1):?>
         <button class="btn btn-success" onclick="add_emp()"><i class="glyphicon glyphicon-plus"></i> Add Employee</button>
         <button class="btn btn-success" onclick="upload_emp()"><i class="glyphicon glyphicon-plus"></i> Upload Employee</button>
         <?endif;?>
