@@ -11,16 +11,25 @@ class Product extends CI_Controller {
         $this->load->helper('file');
         $this->load->helper(array('form', 'url'));
         $this->load->model('Product_model', 'Product_model');
+        $this->load->model('Users_model', 'Users_model');
     }
     
     public function index(){
-        $this->load->helper('url');
+        $check = $this->Users_model->getRoleMenu('index.php/Product');
         
-        $data['page_name'] = 'Product Management';
-        $data['product_list'] = $this->Product_model->getProductList();
-        
-        $data['content'] = $this->load->view('product/list', $data, TRUE);
-        $this->load->view($this->session->userdata("template"), $data);
+        if(count($check) > 0){
+            $this->load->helper('url');
+            
+            $data['page_name'] = 'Product Management';
+            $data['product_list'] = $this->Product_model->getProductList();
+            
+            $data['content'] = $this->load->view('product/list', $data, TRUE);
+            $this->load->view($this->session->userdata("template"), $data);
+        }else{
+            $data['title'] = 'Error Page';
+        	$data["content"] = $this->load->view('error',$data,true);
+            $this->load->view("blank", $data);
+        }
     }
  
     public function ajax_list()
